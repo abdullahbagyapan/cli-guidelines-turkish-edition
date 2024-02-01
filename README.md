@@ -15,7 +15,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
 ## Yazarlar
 
 **Aanand Prasad** \
-Squarespace'de mühendis, Docker Compose'un ortak yaratıcısı.
+Squarespace'de mühendis, Docker Compose'un ortak yaratıcısı. \
 [@aanandprasad](https://twitter.com/aanandprasad)
 
 **Ben Firshman** \
