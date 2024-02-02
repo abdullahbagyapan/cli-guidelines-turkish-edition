@@ -12,6 +12,42 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
 > Son güncellenme tarihi: *2/2/2024*
 
 
+## İçindekiler
+
+* [Önsöz](#önsöz)
+* [Giriş](#giriş)
+* [Felsefe](#felsefe)
+    * [İnsan odaklı tasarım](#i̇nsan-odaklı-tasarım)
+    * [Birlikte çalışan basit parçalar](#birlikte-çalışan-basit-parçalar)
+    * [Programlar arasında tutarlılık](#programlar-arasında-tutarlılık)
+    * [(Sadece) Söylemek yeterli](#sadece-söylemek-yeterli)
+    * Ease of discovery
+    * Conversation as the norm
+    * Robustness
+    * Empathy
+    * Chaos
+
+* Guidelines
+    * The Basics
+    * Help
+    * Documentation
+    * Output
+    * Errors
+    * Arguments and flags
+    * Interactivity
+    * Subcommands
+    * Robustness
+    * Future-proofing
+    * Signals and control characters
+    * Configuration
+    * Environment variables
+    * Naming
+    * Distribution
+    * Analytics
+
+* Further reading
+
+
 ## Yazarlar
 
 **Aanand Prasad** \
