@@ -186,3 +186,18 @@ Bununla birlikte bazen tutarlılık ile kullanım kolaylığı çelişiyor.
 <br>
 
 Kuralları takip etmek programın kullanılabilirliğini tehlikeye attığında, artık kurallardan kopmanın zamanı gelmiş olabilir -ancak böyle bir karar dikkatle verilmelidir.
+
+### (Sadece) Söylemek yeterli
+ 
+Terminal saf bir bilgi dünyasıdır.
+Bilginin arayüz olduğunu ve her arayüzde olduğu gibi bilginin genellikle çok fazla veya çok az olduğunu iddia edebilirsiniz.
+
+<br>
+
+Bir komut birkaç dakika boyunca çalışır kaldığında çok az şey söylüyor demektir ve kullanıcı, komutun bozuk olup olmadığını merak etmeye başlar.
+Bir komut, sayfalarca bilgi dökerek, gerçekten önemli olanı çıktıyı gereksiz bilgiler okyanusunda boğduğunda çok fazla şey söylüyor demektir.
+Nihai sonuç ikisinde de aynı: <b>net olmama</b>, bu sonuç kullanıcının kafasını karıştırır ve sinirlendirir.
+
+<br>
+
+Bu dengeyi doğru kurmak çok zor olabilir, ancak yazılımın, kullanıcılarına güç ve hizmet vermesi isteniliyorsa kesinlikle çok önemlidir.
