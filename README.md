@@ -9,7 +9,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
 >
 > Yazım veya çeviri yanlışı gördüğünüz yerleri bildirirseniz çok sevinirim.
 >
-> Son güncellenme tarihi: *1/2/2024*
+> Son güncellenme tarihi: *2/2/2024*
 
 
 ## Yazarlar
