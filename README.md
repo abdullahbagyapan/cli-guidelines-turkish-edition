@@ -129,7 +129,7 @@ Bu rehber kimin için?
 
 Bunlar, iyi bir CLI tasarımının temel ilkeleri olarak gördüğümüz şeylerdir.
 
-### Human-first design
+### İnsan odaklı tasarım
 
 Geleneksel olarak UNIX komutları, öncelikli olarak diğer programlar tarafından kullanılacakları varsayımıyla yazılmıştır.
 Grafik uygulamalarından ziyade programlama dilindeki fonksiyonlarla daha fazla ortak noktaları vardı.
