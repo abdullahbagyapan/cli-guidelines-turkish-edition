@@ -23,7 +23,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [(Sadece) Söylemek yeterli](#sadece-söylemek-yeterli)
     * [Keşif kolaylığı](#keşif-kolaylığı)
     * [Norm olarak *konuşma*](#norm-olarak-konuşma)
-    * Robustness
+    * [Sağlamlık](#sağlamlık)
     * Empathy
     * Chaos
 
@@ -319,3 +319,14 @@ Pek çok küçük şey var: kullanıcıyı olup bitenler hakkında bilgilendirme
 
 Genel bir kural olarak sağlamlık, işi basit tutmaktan da kaynaklanabilir.
 Pek çok özel durum ve karmaşık kod, bir programı kırılgan hale getirme eğilimindedir.
+
+### Empati
+
+Komut satırı araçları bir programcının yaratıcı araç takımıdır, bu nedenle kullanımı keyifli olmalıdır.
+Bu, onları bir video oyununa dönüştürmek veya çok fazla emoji kullanmak anlamına gelmez (ama doğal olarak bunda 😉 bir sorun yok).
+Bu, kullanıcıya onun yanında olduğunuzu, onun başarılı olmasını istediğinizi, sorunları ve bunların nasıl çözüleceği hakkında dikkatlice düşündüğünüz hissini vermek anlamına gelir.
+
+<br>
+
+Onların bu şekilde hissetmelerini sağlayacak herhangi bir eylemler listesi yok, ancak tavsiyelerimize uymanın sizi o noktaya bir miktar ulaştıracağını umuyoruz.
+Kullanıcıyı memnun etmek, *her fırsatta beklentilerini* aşmak anlamına gelir ve bu da empatiyle başlar.
