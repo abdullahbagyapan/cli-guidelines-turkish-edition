@@ -299,3 +299,23 @@ En iyi ihtimalle, yeni bilgiler ve başarı duygusuyla gidecekleri yolları hız
 <br>
 
 Daha fazlası için: [The Anti-Mac User Interface (Don Gentner and Jakob Nielsen)](https://www.nngroup.com/articles/anti-mac-interface/)
+
+### Sağlamlık
+
+Sağlamlık hem nesnel hem de öznel bir özelliktir.
+Yazılım elbette sağlam olmalıdır: Beklenmedik girdiler zarifçe ele alınmalı, işlemler mümkün olduğunca bağımsız olmalıdır vb. Ancak aynı zamanda sağlam da *hissettirmelidir*.
+
+<br>
+
+Yazılımınızın parçalanmayacakmış gibi hissetmesini istiyorsunuz.
+Sanki dayanıksız bir plastik "yumuşak anahtar" değil de büyük bir mekanik makineymiş gibi hızlı ve anlaşılır olmasını istiyorsunuz.
+
+<br>
+
+Öznel sağlamlık, ayrıntılara dikkat etmeyi ve neyin yanlış gidebileceği hakkında iyice düşünmeyi gerektirir.
+Pek çok küçük şey var: kullanıcıyı olup bitenler hakkında bilgilendirmek, yaygın hataların ne anlama geldiğini açıklamak, korkutucu görünen yığın izleri yazdırmamak.
+
+<br>
+
+Genel bir kural olarak sağlamlık, işi basit tutmaktan da kaynaklanabilir.
+Pek çok özel durum ve karmaşık kod, bir programı kırılgan hale getirme eğilimindedir.
