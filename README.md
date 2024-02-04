@@ -24,7 +24,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Keşif kolaylığı](#keşif-kolaylığı)
     * [Norm olarak *konuşma*](#norm-olarak-konuşma)
     * [Sağlamlık](#sağlamlık)
-    * Empathy
+    * [Empati](#empati)
     * Chaos
 
 * Guidelines
