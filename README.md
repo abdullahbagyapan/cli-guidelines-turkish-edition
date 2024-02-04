@@ -25,7 +25,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Norm olarak *konuşma*](#norm-olarak-konuşma)
     * [Sağlamlık](#sağlamlık)
     * [Empati](#empati)
-    * Chaos
+    * [Kaos](#kaos)
 
 * Guidelines
     * The Basics
