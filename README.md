@@ -21,7 +21,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Birlikte çalışan basit parçalar](#birlikte-çalışan-basit-parçalar)
     * [Programlar arasında tutarlılık](#programlar-arasında-tutarlılık)
     * [(Sadece) Söylemek yeterli](#sadece-söylemek-yeterli)
-    * Ease of discovery
+    * [Keşif kolaylığı](#keşif-kolaylığı)
     * Conversation as the norm
     * Robustness
     * Empathy
