@@ -22,7 +22,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Programlar arasında tutarlılık](#programlar-arasında-tutarlılık)
     * [(Sadece) Söylemek yeterli](#sadece-söylemek-yeterli)
     * [Keşif kolaylığı](#keşif-kolaylığı)
-    * Conversation as the norm
+    * [Norm olarak *konuşma*](#norm-olarak-konuşma)
     * Robustness
     * Empathy
     * Chaos
