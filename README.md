@@ -237,3 +237,29 @@ Nihai sonuç ikisinde de aynı: <b>net olmama</b>, bu sonuç kullanıcının kaf
 <br>
 
 Bu dengeyi doğru kurmak çok zor olabilir, ancak yazılımın, kullanıcılarına güç ve hizmet vermesi isteniliyorsa kesinlikle çok önemlidir.
+
+### Keşif kolaylığı
+
+Söz konusu anlaşılabilirlik olduğunda, GUI'lerin üstünlüğü vardır.
+Yapabileceğiniz her şey önünüzdeki ekranda sergileniyor, böylece hiçbir şey öğrenmenize gerek kalmadan ihtiyacınız olanı bulabilir ve hatta belki de mümkün olduğunu bilmediğiniz şeyleri keşfedebilirsiniz.
+
+<br>
+
+CLI'lerin bunun tersi olduğunu, her şeyin nasıl yapılacağını hatırlamanız gerektiği varsayılmaktadır.
+1987'de yayınlanan orijinal [Macintosh Human Interface Guidelines](https://archive.org/details/applehumaninterf00appl), sanki yalnızca birini seçebiliyormuşsunuz gibi, "remember-and-type" yerine "see-and-point" önerisinde bulunuyor.
+
+><b>Çevirmen Notu</b>: "see-and-point": GUI'lerde olan, gör ve işaretle. "remember-and-type": CLI'lerde olan, hatırla ve yaz.
+
+<br>
+
+Bu şeylerin birbirini dışlaması gerekmez.
+Komut satırını kullanmanın verimliliği, komutları hatırlamaktan gelir, ancak komutların öğrenmenize ve hatırlamanıza yardımcı olmaması için hiçbir neden yok.
+
+<br>
+
+Anlaşılabilir CLI'ler kapsamlı dökümantasyonlara sahiptir, çok sayıda örnek sunar, bir sonraki komut için öneride bulunur, bir hata oluştuğunda ne yapılacağını gösterir.
+CLI'lerin öğrenilmesini ve kullanılmasını kolaylaştırmak için tecrübeli kullanıcılar için bile GUI'lerden alınabilecek pek çok fikir vardır.
+
+<br>
+
+Alıntı: *The Design of Everyday Things (Don Norman), Macintosh Human Interface Guidelines*
