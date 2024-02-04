@@ -330,3 +330,28 @@ Bu, kullanıcıya onun yanında olduğunuzu, onun başarılı olmasını istedi�
 
 Onların bu şekilde hissetmelerini sağlayacak herhangi bir eylemler listesi yok, ancak tavsiyelerimize uymanın sizi o noktaya bir miktar ulaştıracağını umuyoruz.
 Kullanıcıyı memnun etmek, *her fırsatta beklentilerini* aşmak anlamına gelir ve bu da empatiyle başlar.
+
+### Kaos
+
+Terminal dünyası tam bir karmaşa.
+Tutarsızlıklar her yerde ve bu bizi yavaşlatıyor, kendimizi ikinci bir tahminde bulunmamıza neden oluyor.
+
+<br>
+
+Ancak bu kaosa sebep olan bir güç kaynağı olduğu yadsınamaz.
+Terminal -genel olarak UNIX tabanlı ortamlar gibi- oluşturabileceğiniz şeyler üzerinde çok az kısıtlama getirir.
+Bu yüzden bu alanda her türlü icat çiçek açtı.
+
+<br>
+
+Bu belgenin, onlarca yıllık komut satırı geleneğiyle çelişen tavsiyelerin yanı sıra mevcut kalıpları takip etmenizi istemesi de ironik.
+Kuralları çiğnemekten herkes kadar biz de suçluyuz.
+
+<br>
+
+Sizin de kuralları çiğnemeniz gereken bir zaman gelebilir.
+Geldiği zaman bunu niyetle ve amacınızın netliğiyle yapın.
+
+<br>
+
+"Üretkenliğe veya kullanıcı memnuniyetine açıkça zararlı olduğunda bir standardı terk edin." - Jef Raskin, [The Humane Interface](https://en.wikipedia.org/wiki/The_Humane_Interface)
