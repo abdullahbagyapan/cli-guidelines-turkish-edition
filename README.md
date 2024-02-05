@@ -395,3 +395,172 @@ Uymanız gereken birkaç temel kural var. Bunları yanlış anladığınızda pr
 **Çıktıları `stdout`'a bastır.** Programınızın birincil çıktıları stdout'a gitmelidir. Ayrıca makine tarafından okunabilen her şeyde stdout(varsayılan olarak herşeyin basıldığı bir kanal)'a gitmelidir.
 
 **Bilgi mesajlarını `stderr`'a bastır.** Log mesajları, hatalar vb. tümü `stderr`'e gönderilmelidir. Bu, birden fazla komut bir araya getirildiğinde mesajların kullanıcıya görüntülendiği ve bir sonraki komuta aktarılmadığı anlamına gelir.
+
+### Yardım
+
+**Hiçbir seçenek girilmediğinde yardım metnini, `-h` bayrağını veya `--help` bayrağını görüntüleyin.**
+
+**Varsayılan olarak kısa bir yardım metni görüntüle.** Yapabiliyorsanız, `myapp` veya `myapp altkomut` çalıştırıldığında varsayılan olarak yardım metnini görüntüleyin. Tabi eğer programınız çok basit olmadığı ve varsayılan olarak bariz bir şey yapmadığı sürece(örnek olarak `ls`) veya girilenleri okuyan bir programınız varsa (örnek olarak `cat`).
+
+Kısa yardım metni yalnızca şunları içermelidir:
+
+- Programınızın ne yaptığının açıklaması.
+- Bir veya iki örnek çağrı.
+- Çok fazla olmadığı sürece bayrakların açıklamaları.
+- Daha fazla bilgi için `--help` bayrağını iletme talimatı.
+
+`jq` bunu iyi yapıyor. `jq` yazdığınızda, giriş niteliğinde bir açıklama ve bir örnek görüntülenir, ardından bayrakların tam listesi için `jq --help` komutunu geçmeniz istenir:
+
+```
+$ jq
+jq - commandline JSON processor [version 1.6]
+
+Usage:    jq [options] <jq filter> [file...]
+    jq [options] --args <jq filter> [strings...]
+    jq [options] --jsonargs <jq filter> [JSON_TEXTS...]
+
+jq is a tool for processing JSON inputs, applying the given filter to
+its JSON text inputs and producing the filter's results as JSON on
+standard output.
+
+The simplest filter is ., which copies jq's input to its output
+unmodified (except for formatting, but note that IEEE754 is used
+for number representation internally, with all that that implies).
+
+For more advanced filters see the jq(1) manpage ("man jq")
+and/or https://stedolan.github.io/jq
+
+Example:
+
+    $ echo '{"foo": 0}' | jq .
+    {
+        "foo": 0
+    }
+
+For a listing of options, use jq --help.
+```
+
+**`-h` ve `--help` bayrakları geçildiğinde tam yardım metnini göster.** Bunların hepsi yardım göstermeli:
+
+```
+$ myapp
+$ myapp --help
+$ myapp -h
+```
+
+Eğer `-h` bayrağı eklenmişse diğer işaretleri ve argümanları göz ardı edin ve yardımı gösterin. `-h` bayrağını herhangi bayrağın ezmesine izin vermeyin.
+
+Eğer programınız `git` benzeriyse, aşağıdakiler de yardım sunmalıdır:
+
+```
+$ myapp help
+$ myapp help subcommand
+$ myapp subcommand --help
+$ myapp subcommand -h
+```
+
+**Geri bildirim ve sorunlar için bir destek yolu gösterin.** Üst yardım metninde bir web sitesi veya GitHub bağlantısı kullanımı yaygındır.
+
+**Yardım metninde dokümantasyonların web sürümüne bağlantı verin.** Bir alt komut için belirli bir sayfanız veya bağlantınız varsa doğrudan ona bağlantı verin. Bu, özellikle web'de daha ayrıntılı belgeler veya bir şeyin davranışını açıklayabilecek daha fazla okuma varsa faydalıdır.
+
+**Örneklerle yol gösterin.** Kullanıcılar diğer dokümantasyon biçimleri yerine örnekleri kullanma eğilimindedir; bu nedenle, bunları, özellikle yaygın karmaşık kullanımlar olmak üzere, yardım sayfasında ilk önce gösterin. Ne yaptığını açıklamaya yardımcı oluyorsa ve çok uzun değilse gerçek çıktıyı da gösterin.
+
+Bir hikayeyi bir dizi örnekle anlatarak karmaşık kullanımlara doğru yol alabilirsiniz.
+
+**Bir sürü örneğiniz varsa, bunları başka bir yere koyun.** Örneğin bir web veya bir komut cheat sheet sayfası Kapsamlı, gelişmiş örneklere sahip olmak faydalıdır ancak yardım metninizi çok uzun yapmak istemezsiniz.
+
+Daha karmaşık kullanım durumları için, örneğin başka bir araçla entegrasyon yaparken, kapsayıcı bir eğitim yazmak uygun olabilir.
+
+**Yardım metninin başında en sık kullanılan bayrakları ve komutları görüntüleyin.** Çok sayıda bayrağa sahip olmak sorun değil, ancak gerçekten yaygın olanlarınız varsa, önce onları gösterin. Örneğin, `git` başlangıç komutlarını ve en sık kullanılan alt komutları önce görüntüler:
+
+```
+$ git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+…
+```
+
+**Yardım metninizde biçimlendirme kullanın.** Kalın başlıklar taramayı çok daha kolaylaştırır. Ancak, bunu terminalden bağımsız bir şekilde yapmaya çalışın, böylece kullanıcılarınız *kaçış karakterlerinden* oluşan bir duvara bakmazlar.
+
+```
+$ heroku apps --help
+list your apps
+
+USAGE
+  $ heroku apps
+
+OPTIONS
+  -A, --all          include apps in all teams
+  -p, --personal     list apps in personal account when a default team is set
+  -s, --space=space  filter by space
+  -t, --team=team    team to use
+  --json             output in json format
+
+EXAMPLES
+  $ heroku apps
+  === My Apps
+  example
+  example2
+
+  === Collaborated Apps
+  theirapp   other@owner.name
+
+COMMANDS
+  apps:create     creates a new app
+  apps:destroy    permanently destroy an app
+  apps:errors     view app errors
+  apps:favorites  list favorited apps
+  apps:info       show detailed app information
+  apps:join       add yourself to a team app
+  apps:leave      remove yourself from a team app
+  apps:lock       prevent team members from joining an app
+  apps:open       open the app in a web browser
+  apps:rename     rename an app
+  apps:stacks     show the list of available stacks
+  apps:transfer   transfer applications to another user or team
+  apps:unlock     unlock an app so any team member can join
+```
+
+Not: `heroku apps --help` komutu herhangi bir cihazdan çalışıtırıldığında, komut hiçbir kaçış karakteri yaymaz.
+
+**Kullanıcı yanlış bir şey yaptıysa ve ne anlama geldiğini tahmin edebiliyorsanız, önerin.** Örneğin, `brew update jq`, `brew upgrade jq` komutunu çalıştırmanız gerektiğini söyler.
+
+Önerilen komutu çalıştırmak isteyip istemediklerini sorabilirsiniz, ancak bunu zorlamadan yapın. Örneğin:
+
+```
+$ heroku pss
+ ›   Warning: pss is not a heroku command.
+Did you mean ps? [y/n]:
+```
+
+Düzeltilmiş sözdizimini önermek yerine, sanki ilk etapta doğru yazmışlarmış gibi, onlar için çalıştırmak cazip gelebilir. Bazen bu yapılacak doğru şeydir, ama her zaman değil.
+
+İlk olarak, geçersiz girdi mutlaka basit bir yazım hatası anlamına gelmez -bu genellikle kullanıcının mantıksal bir hata yaptığı veya bir kabuk değişkenini kötüye kullandığı anlamına gelebilir. Özellikle eylem bir durumu değiştiriyorsa, ne anlama geldiklerini varsaymak tehlikeli olabilir.
+
+İkincisi, kullanıcının yazdıklarını değiştirirseniz, doğru sözdizimini öğrenemeyeceklerini unutmayın. Bunu yaparak yazdıkları şeklin geçerli ve doğru olduğuna karar veriyorsunuz. Ve bunu süresiz olarak desteklemeyi taahhüt ediyorsunuz. Bu kararı verirken kasıtlı olun ve her iki sözdizimini de belgeleyin.
+
+Daha fazlası için: ["Do What I Mean"](http://www.catb.org/~esr/jargon/html/D/DWIM.html)
+
+**Komutunuz ona bir şey iletilmesini bekliyorsa ve stdin etkileşimli bir terminalse, hemen yardımı görüntüleyin ve çıkın.** Bu, `cat` komutunda olduğu gibi herhangi bir ileti beklemek zorunda kalmaması anlamına gelir. Alternatif olarak, stderr'a bir log mesajı yazdırabilirsiniz.
