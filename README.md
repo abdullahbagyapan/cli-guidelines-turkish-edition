@@ -29,7 +29,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
 
 * [Rehber](#rehber)
     * [Temeller](#temeller)
-    * Help
+    * [Yardım](#yardım)
     * Documentation
     * Output
     * Errors
