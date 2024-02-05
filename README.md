@@ -28,7 +28,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Kaos](#kaos)
 
 * [Rehber](#rehber)
-    * The Basics
+    * [Temeller](#temeller)
     * Help
     * Documentation
     * Output
@@ -367,3 +367,31 @@ Geri kalan bölümler ise *olursa daha güzel olur* tarzındadır. Bunları ekle
 Buradaki ana fikir, aslında programınızın tasarımı hakkında çok fazla zaman harcamaya gerek olmadığıdır: sadece bu kurallara uyarak programınız muhtemelen daha iyi olacaktır. Öte yandan, tasarladıysanız ve programınız için bir kuralın yanlış olduğunu belirlediyseniz bu bir sorun değildir (Keyfi kurallara uymadığınız için programınızı reddedecek herhangi bir otorite yoktur).
 
 Ayrıca bu kurallar kesinleşmiş değildir. Eğer bir kurala iyi bir nedenden ötürü katılmıyorsanız, [bir değişiklik önereceğinizi](https://github.com/cli-guidelines/cli-guidelines) umuyoruz.
+
+### Temeller
+
+Uymanız gereken birkaç temel kural var. Bunları yanlış anladığınızda programınızın kullanımı ya çok zor olacak ya da tamamen bozulacaktır.
+
+<b>Mümkün olduğunca "<i>command-line argument parsing</i>" kütüphanelerini kullanın.</b> Ya *built-in* olmalı ya da 3.parti bir yazılım olmalı. Argümanları ve bayrakları ayırmayı, yardım metnini ve hatta yazım önerilerini mantıklı bir şekilde ele alacaklardır.
+
+İşte beğendiklerimizden bazıları:
+
+* Multi-platform: [docopt](http://docopt.org)
+* Bash: [argbash](https://argbash.io)
+* Go: [Cobra](https://github.com/spf13/cobra), [cli](https://github.com/urfave/cli)
+* Haskell: [optparse-applicative](https://hackage.haskell.org/package/optparse-applicative)
+* Java: [picocli](https://picocli.info/)
+* Node: [oclif](https://oclif.io/)
+* Deno: [flags](https://deno.land/std/flags)
+* Perl: [Getopt::Long](https://metacpan.org/pod/Getopt::Long)
+* PHP: [console](https://github.com/symfony/console), [CLImate](https://climate.thephpleague.com)
+* Python: [Argparse](https://docs.python.org/3/library/argparse.html), [Click](https://click.palletsprojects.com/), [Typer](https://github.com/tiangolo/typer)
+* Ruby: [TTY](https://ttytoolkit.org/)
+* Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
+* Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
+
+**Başarı durumunda 0 çıkış kodunu döndür, başarısızlık durumunda sıfırdan farklı bir kod döndür.** Çıkış kodları, bir programın başarılı çalışıp çalışmadığını gösterir; bu nedenle bunu doğru şekilde bildirmelisiniz. Sıfır olmayan çıkış kodlarını en önemli hata kodlarıyla eşleştirin.
+
+**Çıktıları `stdout`'a bastır.** Programınızın birincil çıktıları stdout'a gitmelidir. Ayrıca makine tarafından okunabilen her şeyde stdout(varsayılan olarak herşeyin basıldığı bir kanal)'a gitmelidir.
+
+**Bilgi mesajlarını `stderr`'a bastır.** Log mesajları, hatalar vb. tümü `stderr`'e gönderilmelidir. Bu, birden fazla komut bir araya getirildiğinde mesajların kullanıcıya görüntülendiği ve bir sonraki komuta aktarılmadığı anlamına gelir.
