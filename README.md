@@ -27,7 +27,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Empati](#empati)
     * [Kaos](#kaos)
 
-* Guidelines
+* [Rehber](#rehber)
     * The Basics
     * Help
     * Documentation
