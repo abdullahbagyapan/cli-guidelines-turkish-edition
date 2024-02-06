@@ -564,3 +564,33 @@ Düzeltilmiş sözdizimini önermek yerine, sanki ilk etapta doğru yazmışlarm
 Daha fazlası için: ["Do What I Mean"](http://www.catb.org/~esr/jargon/html/D/DWIM.html)
 
 **Komutunuz ona bir şey iletilmesini bekliyorsa ve stdin etkileşimli bir terminalse, hemen yardımı görüntüleyin ve çıkın.** Bu, `cat` komutunda olduğu gibi herhangi bir ileti beklemek zorunda kalmaması anlamına gelir. Alternatif olarak, stderr'a bir log mesajı yazdırabilirsiniz.
+
+### Dokümantasyon
+
+[Yardım metninin](#yardım) amacı, programın ne olduğu, hangi seçeneklerin mevcut olduğu ve en yaygın görevlerin nasıl gerçekleştirileceği hakkında kısa ve hızlı şekilde bilgi vermektir. Öte yandan dokümantasyon, tüm ayrıntılara girdiğiniz yerdir. Burası insanların, programınızın ne işe yaradığını, ne işe yaramadığını, nasıl çalıştığını ve ihtiyaç duyabilecekleri her şeyi nasıl yapabileceklerini anlayacakları yerdir.
+
+**Web tabanlı dokümantasyon sağlayın.** İnsanların programınınız dokümantasyonunu çevrimiçi olarak arayabilmeleri ve diğer kişilerle belirli bölümleri paylaşabilmeleri gerekir. Web mevcut olan en kapsayıcı dokümantasyon formatıdır.
+
+**Terminal tabanlı dokümantasyon sağlayın.** Terminaldeki dokümantasyonun birkaç güzel özelliği vardır: erişimi hızlıdır, programın yüklü sürümüyle senkronize kalır ve internet bağlantısı olmadan çalışır.
+
+**Man sayfaları sağlamayı dikkate alın.** Unix'in orijinal dokümantasyon sistemi olan [man sayfaları](https://en.wikipedia.org/wiki/Man_page) günümüzde hala kullanılmaktadır ve birçok kullanıcı programınınz hakkında bilgi edinmeye çalışırken ilk adım olarak `man mycmd`'yi refleks olarak kontrol edecektir. Dokümantasyon oluşturmayı kolaylaştırmak için [ronn](http://rtomayko.github.io/ronn/ronn.1.html) gibi bir araç kullanabilirsiniz (ayrıca web tabanlı dokümantasyon da oluşturabilir).
+
+Ancak, herkes man sayfalarını bilmiyor ve tüm platformlarda çalışmıyor, bu nedenle terminal tabanlı dokümanlarınıza programınızın kendisiyle de erişilebildiğinden emin olmalısınız. Örneğin, `git` ve `npm`, man sayfalarını `help` alt komutu aracılığıyla erişilebilir kılar, bu nedenle `npm help ls` ve `man npm-ls` eşdeğerdir.
+
+```
+NPM-LS(1)                                                            NPM-LS(1)
+
+NAME
+       npm-ls - List installed packages
+
+SYNOPSIS
+         npm ls [[<@scope>/]<pkg> ...]
+
+         aliases: list, la, ll
+
+DESCRIPTION
+       This command will print to stdout all the versions of packages that are
+       installed, as well as their dependencies, in a tree-structure.
+
+       ...
+```
