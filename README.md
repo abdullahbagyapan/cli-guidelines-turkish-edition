@@ -30,7 +30,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
 * [Rehber](#rehber)
     * [Temeller](#temeller)
     * [Yardım](#yardım)
-    * Documentation
+    * [Dokümantasyon](#dokümantasyon)
     * Output
     * Errors
     * Arguments and flags
