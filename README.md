@@ -594,3 +594,132 @@ DESCRIPTION
 
        ...
 ```
+
+### Çıktı
+
+**Okunur çıktılar çok önemli.** Önce insan, sonra makineler gelir. En basit ve doğrudan bir çıktının (stdout veya stderr) olup olmadığını anlamanın yolu *TTY* olup olmadığıdır. Hangi dili kullanıyor olursanız olun, bunu yapmak için bir yardımcı program veya kitaplık bulunacaktır (örn. [Python](https://stackoverflow.com/questions/858623/how-to-recognize-whether-a-script-is-running-on-a-tty), [Node](https://nodejs.org/api/process.html#process_a_note_on_process_i_o), [Go](https://github.com/mattn/go-isatty)).
+
+Daha fazlası için: [what a TTY is](https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con/4132#4132)
+
+**Kullanılabilirliği etkilemediği yerlerde makine tarafından okunabilir bir çıktıya sahip olun.** Metin akışları UNIX'teki evrensel arayüzdür. Programlar genellikle metin satırı basar veya girdi olarak metin satırı bekler, bu nedenle birden fazla programı bir arada kullanabilirsiniz. Bu normalde script yazabilmek için yapılır, ancak aynı zamanda programları kullanan insanların kullanılabilirliğine de yardımcı olabilir. Örneğin, bir kullanıcı çıktıyı `grep`'e yönlendirebilmelidir.
+
+"Her programın çıktısını başka bir programın girdisi olarak bekleyin" — Doug McIlroy
+
+**İnsan tarafından okunabilir çıktı makine tarafından okunabilir çıktıyı keserse, çıktıyı `grep` veya `awk` gibi araçlarla entegrasyon için düz ve tablo biçiminde görüntülemek için `--plain` kullanın.** Bazı durumlarda, çıktıyı insan tarafından okunabilir hale getirmek için farklı bir şekilde çıktı almanız gerekebilir.
+
+Örneğin, satır satır bir tablo görüntülüyorsanız, ekran boyutundan dolayı bilgiyi tabloya sığdırmak için birden çok satıra bölmeyi seçebilirsiniz. Bu durum satır başına bir veri beklenen davranışını bozar, bu nedenle scriptler için tüm bu işlemleri devre dışı bırakan ve satır başına bir kayıt çıkaran `--plain` flagini sağlamalısınız.
+
+**`--Json` flagi eklenirse çıktıyı JSON olarak görüntüle.** JSON, düz metinden daha fazla yapıya izin verir, bu nedenle karmaşık veri yapılarının çıktısını almayı ve işlemeyi çok daha fazla kolaylaştırır. [jq](https://jqlang.github.io/jq/), komut satırında JSON ile çalışmak için yaygın olarak kullanıran bir araç ve artık json'u çıkaran ve manipüle eden [çok fazla araç](https://ilya-sher.org/2018/04/10/list-of-json-tools-for-command-line/) var.
+
+Web'de de yaygın olarak kullanılır, bu nedenle `curl` kullanarak web servislerini doğrudan programınıza girdi veya çıktı olarak kullanabilirsiniz. 
+
+**Başarılı olan durumlarda çıktıyı görüntüleyin, ancak kısa tutun.** Geleneksel olarak, yanlış bir şey olmadığında, UNIX komutları kullanıcıya herhangi bir çıktı göstermez. Bu, scriptlerde kullanıldıklarında anlamlıdır ama insanlar tarafından kullanıldığında komutların askıda kaldıklarını veya bozuk olduğunu düşünmelerine neden olabilir. Örneğin, `cp` çalışması uzun zaman alsa bile hiçbir şey yazdırmaz.
+
+Hiçbir şey yazdırmamak nadiren en iyi varsayılan davranıştır, ama err kullanmaktan daha iyidir.
+
+Çıktı istemediğiniz durumlarda (örneğin, script dosyalarında), `stderr`'nin `/dev/null`'a beceriksiz bir şekilde yönlendirilmesini önlemek için, gerekli olmayan tüm çıktıları `-q` seçeneği ile susturabilirsiniz.
+
+**Eğer mevcut durumu değiştiriyorsanız, kullanıcıya söyleyin.** Bir komut sistemin durumunu değiştirdiğinde, ne yaptığını açıklamak çok değerlidir, böylece kullanıcı sistemin durumunu kafasında modelleyebilir -özellikle sonuç doğrudan kullanıcının istediğiyle eşleşmiyorsa.
+
+Örneğin, `git push` size tam olarak ne yaptığını ve yeni durumunun ne olduğunu söyler:
+
+```
+$ git push
+Enumerating objects: 18, done.
+Counting objects: 100% (18/18), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (10/10), 2.09 KiB | 2.09 MiB/s, done.
+Total 10 (delta 8), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (8/8), completed with 8 local objects.
+To github.com:replicate/replicate.git
+ + 6c22c90...a2a5217 bfirsh/fix-delete -> bfirsh/fix-delete
+```
+
+**Sistemin mevcut durumunu görmeyi kolaylaştırın.** Programınız çok karmaşık durum değişiklikleri yapıyorsa ve dosya sisteminde hemen görünmüyorsa, bunu görüntülemeyi kolaylaştırdığınızdan emin olun.
+
+Örneğin, `git status` size Git deponuzun mevcut durumu hakkında mümkün olduğunca fazla bilgi verir ve durumu nasıl değiştireceğinize dair bazı ipuçları verir:
+
+```
+$ git status
+On branch bfirsh/fix-delete
+Your branch is up to date with 'origin/bfirsh/fix-delete'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cli/pkg/cli/rm.go
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+**Kullanıcının çalıştırması gereken komutları önerin.** Birkaç komut bir iş akışı oluşturduğunda, kullanıcıya bir sonraki komutlarını çalıştırabileceklerini önermek, programınızı nasıl kullanacaklarını öğrenmelerine ve yeni işlevler keşfetmelerine yardımcı olur. Örneğin, yukarıdaki `git status` çıktısında, görüntülemekte olduğunuz durumu değiştirmek için çalıştırabileceğiniz komutları öneriyor.
+
+**Programın iç dünyasının sınırını aşan eylemler hakkında genellikle açık olun.** Bu, aşağıdaki örnekleride kapsar:
+
+- Kullanıcının açıkça argüman olarak iletmediği dosyaları okuma veya yazma (eğer bu dosyalar önbellek gibi dahili program durumunda saklanmıyorsa).
+- Uzak bir sunucuyla konuşmak, örneğin bir dosyayı indirmek.
+
+**Bilgi yoğunluğunu artırın-ASCII sanatı ile !** Örneğin, `ls` izinleri taranabilir bir şekilde gösterir. İlk gördüğünüzde, bilgilerin çoğunu görmezden gelebilirsiniz. Sonra, nasıl çalıştığını öğrendikçe, zaman içinde daha fazla kalıp seçersiniz.
+
+```
+-rw-r--r-- 1 root root     68 Aug 22 23:20 resolv.conf
+lrwxrwxrwx 1 root root     13 Mar 14 20:24 rmt -> /usr/sbin/rmt
+drwxr-xr-x 4 root root   4.0K Jul 20 14:51 security
+drwxr-xr-x 2 root root   4.0K Jul 20 14:53 selinux
+-rw-r----- 1 root shadow  501 Jul 20 14:44 shadow
+-rw-r--r-- 1 root root    116 Jul 20 14:43 shells
+drwxr-xr-x 2 root root   4.0K Jul 20 14:57 skel
+-rw-r--r-- 1 root root      0 Jul 20 14:43 subgid
+-rw-r--r-- 1 root root      0 Jul 20 14:43 subuid
+```
+
+**Rengi bir amaçla kullanın.** Örneğin, kullanıcının fark etmesi için bir metni vurgulamak veya bir hatayı belirtmek için kırmızı rengi kullanmak isteyebilirsiniz. Aşırı kullanmayın—her şey farklı renkteyse, o zaman rengin hiçbir anlamı yoktur ve yalnızca okumayı zorlaştırır.
+
+**Programınız bir terminalde değilse veya kullanıcı bunu talep ettiyse rengi devre dışı bırakın.** Bunlar renkleri devre dışı bırakmalıdır:
+
+- Eğer `stdout` veya `stderr` etkileşimli bir terminal (TTY) değilse. Tek tek kontrol etmek en iyisidir; eğer `stdout`'u başka bir programa aktarıyorsanız, `stderr`'yi renkli görmek yine de faydalıdır.
+- Eğer `NO_COLOR` değişkeni ayarlandıysa.
+- Eğer `TERM` değişkeni `dumb` değerine sahipse.
+- Eğer kullanıcı `--no-color` flagini belirttiyse.
+- Kullanıcıların programınız için rengi devre dışı bırakmak istemesi durumunda, kullanıcılardan bir `MYAPP_NO_COLOR` değişkeni eklemelerini isteyebilirsiniz.
+
+Daha fazlası için: [no-color.org](https://no-color.org/), [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)
+
+**Eğer `stdout` etkileşimli bir terminal değilse herhangi bir animasyon görüntülemeyin.** Bu, CI çıktısındaki ilerleme çubuklarının Noel ağaçlarına dönüşmesini engelleyecektir.
+
+**İşleri daha net hale getirecek semboller ve emojiler kullanın.** Birkaç şeyi belirginleştirmeniz, kullanıcının dikkatini çekmeniz veya sadece biraz karakter eklemeniz gerekiyorsa resimler kelimelerden daha iyi olabilir. Dikkat olun çünkü abartabilirsiniz ve programınızın karışık görünmesine veya oyuncak gibi görünmesine neden olabilir.
+
+Örneğin, [yubikey-agent] çıktının sadece metin duvarı olmamaması için emoji kullanarak yapılandırıyor ve önemli bir bilgiye dikkatinizi çekmek için ❌ kullanıyor:
+
+```
+$ yubikey-agent -setup
+🔐 The PIN is up to 8 numbers, letters, or symbols. Not just numbers!
+❌ The key will be lost if the PIN and PUK are locked after 3 incorrect tries.
+
+Choose a new PIN/PUK: 
+Repeat the PIN/PUK: 
+
+🧪 Retriculating splines …
+
+✅ Done! This YubiKey is secured and ready to go.
+🤏 When the YubiKey blinks, touch it to authorize the login.
+
+🔑 Here's your new shiny SSH public key:
+ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCEJ/
+UwlHnUFXgENO3ifPZd8zoSKMxESxxot4tMgvfXjmRp5G3BGrAnonncE7Aj11pn3SSYgEcrrn2sMyLGpVS0=
+
+💭 Remember: everything breaks, have a backup plan for when this YubiKey does.
+```
+
+**Varsayılan olarak, yalnızca yazılımın yaratıcılarının anlayabileceği bilgileri çıkartmayın.** Eğer bir çıktı parçası yalnızca sizin, (geliştiricinin) yazılımınızın ne yaptığını anlamanıza yardımcı oluyorsa, kesinlikle normal kullanıcılara varsayılan olarak görüntülenmemelidir; yalnızca ayrıntılı modda görüntülenmelidir.
+
+Dışarıdan ve projenizde yeni olan kişilerden kullanılabilirlik geri bildirimlerini davet edin. Farkedemeyecek kadar yakın baktığınız kodun önemli sorunlarını görmenize yardımcı olacaklardır.
+
+**En azından varsayılan olarak `stderr`'e bir log dosyası gibi davranmayın.** Ayrıntılı modda olmadığı sürece günlük düzeyindeki etiketleri (ERR, WARN, vb.) veya konu dışı bağlamsal bilgileri yazdırmayın.
+
+**Çok fazla metin çıktısı alıyorsanız bir sayfalayıcı kullanın (örn. `less`).** Örneğin, `git diff` bunu varsayılan olarak yapıyor. Sayfalayıcı kullanmak hataya açık olabilir; bu nedenle, kullanıcı deneyimini daha da kötüleştirmemek için uygulamanıza dikkat edin. Eğer `stdin` veya `stdout` etkileşimli bir terminal değilse sayfalayıcı kullanmamalısınız.
+
+`less` kullanmak için mantıklı olan parametreler `less -FIRX`'tir. Bu, içerik bir ekranı dolduruyorsa ekstra sayfa açmaz, arama yaptığınızda büyük/küçük harf dikkate alınmaz, renk ve biçimlendirmeyi etkinleştirir ve `less`'ten çıkıldığında içeriği ekranda bırakır.
+
+Dilinizde `less` yerine daha sağlam kütüphaneler olabilir. Örneğin Python'daki [pypager](https://github.com/prompt-toolkit/pypager).
