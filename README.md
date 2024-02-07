@@ -31,7 +31,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Temeller](#temeller)
     * [Yardım](#yardım)
     * [Dokümantasyon](#dokümantasyon)
-    * Output
+    * [Çıktı](#çıktı)
     * Errors
     * Arguments and flags
     * Interactivity
