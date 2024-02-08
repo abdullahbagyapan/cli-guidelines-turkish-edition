@@ -724,7 +724,7 @@ Dışarıdan ve projenizde yeni olan kişilerden kullanılabilirlik geri bildiri
 
 Dilinizde `less` yerine daha sağlam kütüphaneler olabilir. Örneğin Python'daki [pypager](https://github.com/prompt-toolkit/pypager).
 
-#### Hatalar
+### Hatalar
 
 Dokümantasyonlara başvurmanın en yaygın nedenlerinden biri hataları düzeltmektir. Dokümantasyonda hataları işleyebilirseniz, bu kullanıcıya çok fazla zaman kazandıracaktır.
 
