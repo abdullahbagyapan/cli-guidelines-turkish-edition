@@ -33,7 +33,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Dokümantasyon](#dokümantasyon)
     * [Çıktı](#çıktı)
     * [Hatalar](#hatalar)
-    * Arguments and flags
+    * [Argümanlar ve flagler](#argümanlar-ve-flagler)
     * Interactivity
     * Subcommands
     * Robustness
