@@ -692,3 +692,19 @@ Hassas verileri yalnızca dosyalar yoluyla, örneğin `--password-file` argüman
 **Eğer bir şifre soruyorsanız, kullanıcı yazarken şifreyi yazdırmayın.** Bu, terminaldeki echo'yu kapatarak yapılır. Bunu yapmak için kullandığınız dilin yardımcı kütüphaneleri olmalıdır.
 
 **Kullanıcının programdan çıkmasına izin ver.** Programdan nasıl çıkılacağını açıkça belirtin. (Vim'in yaptığını yapmayın :D) Eğer programınız network, I/O vb. durumlarda takılı kalırsa, her zaman `Ctrl-C`'nin çalışır kalmasını sağlayın. Eğer programınız çok katmanlıysa ve Ctrl-C ile çıkılmadığı durumlarda (SSH, tmux, telnet, vb.) bunun nasıl yapılacağını kullanıcıya açıkça belirtin. Örneğin SSH, `~` kaçış karakteriyle çıkışa izin verir.
+
+### Alt komutlar
+
+Yeterince karmaşık bir aracınız varsa, bir dizi alt komut oluşturarak karmaşıklığını azaltabilirsiniz. Birbiriyle yakından ilişkili birkaç aracınız varsa, bunları tek bir komutta birleştirerek bunların kullanımını ve keşfedilmesini kolaylaştırabilirsiniz (örneğin, RCS ve Git).
+
+Tek bir komutta birleşmesi genel flagler, yardım metni, ayarlamalar, depolama mekanizmaları gibi şeyleri paylaştırmak için kullanışlıdır.
+
+**Alt komutlarda tutarlı olun.** Aynı şeyler için aynı flag adlarını kullanın, benzer çıktı formatına sahip olun, vb.
+
+**Birden fazla alt komut düzeyi için tutarlı adlar kullanın.** Eğer karmaşık bir yazılım parçasında çok sayıda nesne ve nesneler üzerinde gerçekleştirilebilecek işlemler varsa, bunun için birinin *isim* ve diğerinin *fiil* olduğu iki düzeyde alt komut kullanmak yaygın bir kalıptır. Örneğin, `docker container create`. Farklı nesne türlerinde kullandığınız fiiller konusunda tutarlı olun.
+
+`isim fiil` veya `fiil isim` sıralaması işe yarar, ancak `isim fiil`'in daha yaygın olduğu görülmektedir.
+
+Daha fazlası için: [User experience, CLIs, and breaking the world, by John Starich](https://uxdesign.cc/user-experience-clis-and-breaking-the-world-baed8709244f).
+
+**Belirsiz veya benzer adlara sahip komutlarınız olmasın.** Örneğin “update” ve “upgrade” adında iki alt komutun olması oldukça kafa karıştırıcıdır. Farklı kelimeler kullanarak veya fazladan kelimelerle belirsizliği ortadan kaldırmak isteyebilirsiniz.
