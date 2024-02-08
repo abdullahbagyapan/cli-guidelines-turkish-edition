@@ -1,7 +1,7 @@
 # Command Line Interface Guidelines
 
 
-Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha iyi komut satırı programları yazmanıza yardımcı olacak açık kaynaklı bir rehber.
+Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha iyi komut satırı programları yazmanıza yardımcı olacak [açık kaynaklı](https://github.com/cli-guidelines/cli-guidelines) bir rehber.
 
 > **Çevirmen Notu**
 >
