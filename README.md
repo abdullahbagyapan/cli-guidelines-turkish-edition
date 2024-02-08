@@ -683,3 +683,12 @@ Hassas verileri yalnızca dosyalar yoluyla, örneğin `--password-file` argüman
 
 (`--password $(< password.txt)` komutunu kullanarak bir dosyanın içeriğini Bash'teki bir değişkene aktarmak mümkündür. Bu yaklaşım, dosyanın içeriğinin `ps` çıktısına sızması gibi güvenlik sorununa sahiptir. Bundan kaçınmak en iyisidir.) 
 
+### Etkileşim
+
+**Yalnızca `stdin` etkileşimli bir terminal (TTY) ise istemleri veya etkileşimli öğeleri kullanın.** Bu, verileri bir komuta mı aktardığınızı yoksa bir script dosyasında mı çalıştırıldığını anlamanın oldukça güvenilir bir yoludur; bu durumda istem çalışmaz ve kullanıcıya hangi flagi ileteceğini söyleyen bir hata iletmeniz gerekir.
+
+**Eğer `--no-input` iletilirse, istemde bulunmayın veya etkileşimli herhangi bir şey yapmayın.** Bu, kullanıcılara komutlardaki tüm istemleri devre dışı bırakmanın açık bir yolunu sağlar. Eğer komut girdi istiyorsa, çalıştırmayın ve kullanıcıya girdiyi flag olarak nasıl ileteceğini söyleyin.
+
+**Eğer bir şifre soruyorsanız, kullanıcı yazarken şifreyi yazdırmayın.** Bu, terminaldeki echo'yu kapatarak yapılır. Bunu yapmak için kullandığınız dilin yardımcı kütüphaneleri olmalıdır.
+
+**Kullanıcının programdan çıkmasına izin ver.** Programdan nasıl çıkılacağını açıkça belirtin. (Vim'in yaptığını yapmayın :D) Eğer programınız network, I/O vb. durumlarda takılı kalırsa, her zaman `Ctrl-C`'nin çalışır kalmasını sağlayın. Eğer programınız çok katmanlıysa ve Ctrl-C ile çıkılmadığı durumlarda (SSH, tmux, telnet, vb.) bunun nasıl yapılacağını kullanıcıya açıkça belirtin. Örneğin SSH, `~` kaçış karakteriyle çıkışa izin verir.
