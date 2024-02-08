@@ -723,3 +723,17 @@ Dışarıdan ve projenizde yeni olan kişilerden kullanılabilirlik geri bildiri
 `less` kullanmak için mantıklı olan parametreler `less -FIRX`'tir. Bu, içerik bir ekranı dolduruyorsa ekstra sayfa açmaz, arama yaptığınızda büyük/küçük harf dikkate alınmaz, renk ve biçimlendirmeyi etkinleştirir ve `less`'ten çıkıldığında içeriği ekranda bırakır.
 
 Dilinizde `less` yerine daha sağlam kütüphaneler olabilir. Örneğin Python'daki [pypager](https://github.com/prompt-toolkit/pypager).
+
+#### Hatalar
+
+Dokümantasyonlara başvurmanın en yaygın nedenlerinden biri hataları düzeltmektir. Dokümantasyonda hataları işleyebilirseniz, bu kullanıcıya çok fazla zaman kazandıracaktır.
+
+**Hataları yakalayın ve [bunları insanlar için yeniden yazın](https://www.nngroup.com/articles/error-message-guidelines/).** Bir hatanın oluşmasını bekliyorsanız, onu yakalayın ve yararlı olması için hata mesajını yeniden yazın. Bunu kullanıcının yanlış bir şey yaptığı ve programın onu doğru yöne yönlendirdiği bir konuşma gibi düşünün. Örnek: “file.txt dosyasına yazılamıyor.  'chmod +w file.txt' komutunu çalıştırarak onu yazılabilir hale getirmeniz gerekebilir."
+
+**Sinyal-gürültü oranı çok önemlidir.** Ne kadar alakasız çıktı üretirseniz kullanıcının neyi yanlış yaptığını anlaması o kadar uzun sürer. Programınız aynı türde birden fazla hata üretiyorsa, benzer görünen birçok satır yazdırmak yerine bunları tek bir açıklayıcı başlık altında gruplandırmayı düşünün.
+
+**Kullanıcının ilk olarak nereye bakacağını düşünün.** En önemli bilgiyi çıktının sonuna koyun. Gözler kırmızı metne çekilecektir, bu nedenle bunu bilinçli ve dikkatli kullanın.
+
+**Beklenmeyen veya açıklanamayan bir hata varsa hata ayıklama bilgilerini, geri izleme bilgilerini ve hatanın nasıl gönderileceğine ilişkin talimatları sağlayın.** Bununla birlikte, sinyal-gürültü oranını unutmayın: Kullanıcıyı anlamadığı bilgilerle bunaltmak istemezsiniz. Log günlüğünü terminale yazdırmak yerine bir dosyaya yazmayı düşünün.
+
+**Hata raporlarını göndermeyi zahmetsiz hale getirin.** Yapabileceğiniz güzel şeylerden biri, bir URL sağlamak ve mümkün olduğunca fazla bilgiyi önceden doldurmasını sağlamaktır.
