@@ -35,7 +35,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Hatalar](#hatalar)
     * [Argümanlar ve flagler](#argümanlar-ve-flagler)
     * [Etkileşim](#etkileşim)
-    * Subcommands
+    * [Alt komutlar](#alt-komutlar)
     * Robustness
     * Future-proofing
     * Signals and control characters
