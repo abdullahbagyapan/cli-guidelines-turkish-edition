@@ -36,7 +36,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Argümanlar ve flagler](#argümanlar-ve-flagler)
     * [Etkileşim](#etkileşim)
     * [Alt komutlar](#alt-komutlar)
-    * Robustness
+    * [Sağlamlık](#sağlamlık)
     * Future-proofing
     * Signals and control characters
     * Configuration
