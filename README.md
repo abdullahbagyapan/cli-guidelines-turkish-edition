@@ -32,7 +32,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Yardım](#yardım)
     * [Dokümantasyon](#dokümantasyon)
     * [Çıktı](#çıktı)
-    * Errors
+    * [Hatalar](#hatalar)
     * Arguments and flags
     * Interactivity
     * Subcommands
