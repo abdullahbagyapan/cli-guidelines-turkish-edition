@@ -708,3 +708,47 @@ Tek bir komutta birleşmesi genel flagler, yardım metni, ayarlamalar, depolama 
 Daha fazlası için: [User experience, CLIs, and breaking the world, by John Starich](https://uxdesign.cc/user-experience-clis-and-breaking-the-world-baed8709244f).
 
 **Belirsiz veya benzer adlara sahip komutlarınız olmasın.** Örneğin “update” ve “upgrade” adında iki alt komutun olması oldukça kafa karıştırıcıdır. Farklı kelimeler kullanarak veya fazladan kelimelerle belirsizliği ortadan kaldırmak isteyebilirsiniz.
+
+### Sağlamlık
+
+**Kullanıcı girdilerini doğrula.** Programınızın kullanıcıdan veri kabul ettiği her yerde hatalı veriler girilecektir. Erkenden kontrol edin ve kötü bir şey olmadan önce kurtarma yapın ve [hataları anlaşılır hale getirin](#hatalar).
+
+**Yanıt verebilmek hızlı olmaktan daha önemlidir.** Kullanıcıya <100 ms'de bir şey yazdırın. Bir ağ isteği yapıyorsanız, yapmadan önce bir şey yazdırın, böylece askıda kalmış veya bozulmuş gibi görünmez.
+
+**Bir şey uzun sürerse ilerlemeyi göster.** Eğer programınız bir süre çıktı göstermezse, bozuk görünecektir. İyi bir ilerleme göstergesi, bir programın olduğundan daha hızlı görünmesine neden olabilir.
+
+Ubuntu 20.04, terminalin altında olan güzel bir ilerleme çubuğuna sahip.
+
+İlerleme çubuğu uzun süre tek bir yerde sıkışırsa, kullanıcı hala bir şeyler olup olmadığını veya programın çöküp çökmediğini bilemez. Hala üzerinde çalıştığınıza dair onlara güvence vermek için tahmini kalan süreyi göstermek, hatta animasyonlu bir bileşene sahip olmak iyidir.
+
+İlerleme çubukları oluşturmak için birçok iyi kitaplık var. Örneğin, Python için [tqdm](https://github.com/tqdm/tqdm), Go için [schollz/progressbar](https://github.com/schollz/progressbar) ve Node.js için [node-progress](https://github.com/visionmedia/node-progress).
+
+**Yapabildiğiniz yerde paralel şeyler yapın, ancak bu konuda düşünceli olun.** Shell üzerindeki ilerlemeyi bildirmek zaten zor; Bunu paralel süreçler için yapmak on kat daha zordur. Sağlam olduğundan ve çıktının kafa karıştırıcı bir şekilde birbirine karışmadığından emin olun. Bir kitaplık kullanabiliyorsanız, kullanın -bu, kendinizin yazmak istemeyeceği bir koddur. Python için [tqdm](https://github.com/tqdm/tqdm), Go için [schollz/progressbar](https://github.com/schollz/progressbar) gibi kitaplıklar doğal olarak birden çok ilerleme çubuğunu destekler.
+
+Olumlu tarafı, büyük bir kullanılabilirlik kazancı olabilmesidir. Örneğin, `docker pull`'un çoklu ilerleme çubukları, neler olup bittiğine dair önemli bilgiler sunar.
+
+```
+$ docker image pull ruby
+Using default tag: latest
+latest: Pulling from library/ruby
+6c33745f49b4: Pull complete 
+ef072fc32a84: Extracting [================================================>  ]  7.569MB/7.812MB
+c0afb8e68e0b: Download complete 
+d599c07d28e6: Download complete 
+f2ecc74db11a: Downloading [=======================>                           ]  89.11MB/192.3MB
+3568445c8bf2: Download complete 
+b0efebc74f25: Downloading [===========================================>       ]  19.88MB/22.88MB
+9cb1ba6838a0: Download complete 
+```
+
+Dikkat edilmesi gereken bir şey var: işler *iyi* gittiğinde logları ilerleme çubuklarının arkasına saklamak kullanıcının neler olduğunu anlamasını çok daha kolaylaştırır, ancak bir hata varsa logları yazdırdığınızdan emin olun. Aksi takdirde hata ayıklamak çok zor olacaktır.
+
+**İşleri zaman aşımınlı yapın.** Ağ zaman aşımlarının yapılandırılmasına izin verin ve sonsuza kadar askıda kalmaması için makul bir varsayılan değere sahip olun.
+
+**İşleri kurtarılabilir yapın.** Program geçici bir nedenden dolayı başarısız olursa (ör. internet bağlantı kesintisi), `<up>` ve `<enter>` tuşlarına basabilmeniz ve kaldığı yerden devam etmesi gerekir.
+
+**Yalnızca çökmesini sağlayın.** Bu, bağımsızlığın bir sonraki adımıdır. Eğer işlemlerden sonra herhangi bir temizlik yapma ihtiyacını ortadan kaldırabilirseniz veya bu temizliği bir sonraki çalıştırmaya erteleyebilirseniz, programınız arıza veya kesinti durumunda hemen çıkabilir. Bu onu hem daha sağlam hem de daha duyarlı hale getirir.
+
+*Alıntı: [Crash-only software: More than meets the eye](https://lwn.net/Articles/191059/).*
+
+**İnsanlar programınızı kötüye kullanacaklar.** Buna hazırlıklı olun. Bunu script dosyalarında kullanacaklar, kötü internet bağlantılarında kullanacaklar, aynı anda birçok örneğini çalıştıracaklar ve test etmediğiniz ortamlarda, tahmin etmediğiniz tuhaflıklarla kullanacaklar. (MacOS dosya sistemlerinin büyük/küçük harfe duyarlı olmadığını, aynı zamanda büyük/küçük harf koruyucu olduğunu da biliyor muydunuz?)
