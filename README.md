@@ -598,3 +598,88 @@ Dokümantasyonlara başvurmanın en yaygın nedenlerinden biri hataları düzelt
 **Beklenmeyen veya açıklanamayan bir hata varsa hata ayıklama bilgilerini, geri izleme bilgilerini ve hatanın nasıl gönderileceğine ilişkin talimatları sağlayın.** Bununla birlikte, sinyal-gürültü oranını unutmayın: Kullanıcıyı anlamadığı bilgilerle bunaltmak istemezsiniz. Log günlüğünü terminale yazdırmak yerine bir dosyaya yazmayı düşünün.
 
 **Hata raporlarını göndermeyi zahmetsiz hale getirin.** Yapabileceğiniz güzel şeylerden biri, bir URL sağlamak ve mümkün olduğunca fazla bilgiyi önceden doldurmasını sağlamaktır.
+
+### Argümanlar ve flagler
+
+- Argümanlar, veya args, bir komutun konumsal parametreleridir. Örneğin, `cp`'ye sağladığınız dosya yolları args'tır. Arg'ların sırası genellikle önemlidir: `cp foo bar`, `cp bar foo`'dan farklı bir anlama gelir.
+- Flagler, kısa çizgi ve tek harfli adla (`-r`) veya çift kısa çizgi ve çok harfli adla (`--recursive`) gösterilen adlandırılmış parametrelerdir. Ayrıca kullanıcı tarafından belirlenen bir değer içerebilir veya içermeyebilir (`--file foo.txt` veya `--file=foo.txt`). Genel anlamda flaglerin sırası programın akışını etkilemez.
+
+**Flagleri argümanlara tercih edin.** Biraz daha fazla yazı yazmak gerekiyor ama neler olup bittiğini çok daha net bir şekilde ortaya koyuyor. Ayrıca ileride girdiyi kabul etme şeklinizde değişiklik yapmanızı da kolaylaştırır. Bazen argümanları kullanırken mevcut davranışı bozmadan veya belirsizlik yaratmadan yeni girdi eklemek imkansızdır.
+
+*Alıntı: [12 Factor CLI Apps.](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)*
+
+**Bütün flaglerin tam uzunluktaki versiyonlarına sahip olun.** Örneğin hem `-h` hem de `--help`'e sahip olun. Tam uzunluktaki sürüme sahip olmak, ayrıntılı ve açıklayıcı olmak istediğiniz scriptlerde kullanışlıdır ve flaglerin anlamını her yerde aramanıza gerek yoktur.
+
+*Alıntı: [GNU Coding Standards.](https://www.gnu.org/prep/standards/html_node/Command_002dLine-Interfaces.html)*
+
+**Yaygın olarak kullanılan flagler için yalnızca tek harfli flag kullanın,** özellikle alt komutları kullanırken en üst düzeyde yalnızca tek harfli işaretler kullanın. Bu şekilde ad alanınızı kısa flaglerle "kirletmezsiniz" ve gelecekte ekleyeceğiniz flagler için sizi karmaşık harfler ve büyük/küçük harf kullanmaya zorlamazsınız.
+
+**Birden çok dosyaya basit eylemler için çoklu argüman kullanımı uygundur.** Örneğin, `rm file1.txt file2.txt file3.txt`. Bu aynı zamanda evrensel çalışmasını sağlar: `rm *.txt`.
+
+**Farklı şeyler için iki veya daha fazla argümanınız varsa, muhtemelen yanlış bir şey yapıyorsunuzdur.** Bir istisna olarak kısalığın ezberlenmeye değer olduğu, birincil eylemler. Örneğin, `cp <source> <destination>`.
+
+*Alıntı: [12 Factor CLI Apps.](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)*
+
+**Bir standart varsa, flagler için standart adlar kullanın.** Yaygın olarak kullanılan başka bir komut bir flag adı kullanıyorsa, mevcut modeli takip etmek en iyisidir. Bu şekilde, kullanıcının iki farklı seçeneği (hangisin hangi komuta uygulandığını) hatırlaması gerekmez ve hatta kullanıcılar yardım metnine bakmak zorunda kalmadan bir seçeneği tahmin edebilir.
+
+Yaygın olarak kullanılan seçeneklerin bir listesi:
+
+- `-a`, `--all`: Hepsi. Örneğin `ps`, `fetchmail`.
+- `-d`, `--debug`: Hata ayıklama çıktısını göster.
+- `-f`, `--force`: Zorla. Örneğin `rm -f` komutu, yeterli izinlerin olmadığını düşünse bile dosyaların kaldırılmasını zorlayacaktır. Bu aynı zamanda, genellikle kullanıcı onayı gerektiren, yıkıcı bir şey yapan komutlar için de kullanışlıdır, ancak onu bir komut dosyasında bu yıkıcı eylemi yapmaya zorlamak istiyorsunuz.
+- `--json`, JSON çıktısını görüntüle. [Çıktı](#çıktı) bölümüne bakın.
+- `-h`, `--help`: Yardım. Bu sadece yardım anlamına gelmelidir. [Yardım](#yardım) bölümüne bakın.
+- `--no-input`: [Etkileşim](#etkileşim) bölümüne bakın.
+- `-o`, `--output`: Çıktı dosyası. Örneğin, `sort`, `gcc`.
+- `-p`, `--port`: Port. Örneğin `psql`, `ssh`.
+- `-q`, `--quiet`: Sessiz. Daha az çıktı göster. Bu, özellikle bir script dosyasını çalıştırırken gizlemek isteyebileceğiniz çıktıları insanlara yönelik görüntülerken kullanışlıdır.
+- `-u`, `--user`: Kullanıcı.  Örneğin `ps`, `ssh`.
+- `--version`: Version.
+- `-v`: Bu genellikle ayrıntılı mod veya version anlamına gelebilir. Ayrıntılı mod için `-d`'yi ve version için `-v`'yi veya karışıklığı önlemek için hiçbirini kullanmayabilirsiniz.
+
+**Çoğu kullanıcı için varsayılanı doğru yapın.** İşleri yapılandırılabilir hale getirmek iyidir, ancak çoğu kullanıcı doğru flagi bulamayacak ve onu her zaman kullanmayı (veya onun takma adını) hatırlamayacaktır.
+
+><b>Çevirmen Notu</b>: Takma ad çevirisi alias'ın yerine kullanılmıştır.
+
+Örneğin `ls`, script dosyalarından ve diğer tarihsel nedenlerle optimizasyon için varsayılan olarak kısa ve öz çıktıya sahiptir, ancak bugün tasarlanmış olsaydı muhtemelen varsayılan olarak `ls -lhF` olurdu.
+
+**Kullanıcı girdisi isteyin.** Bir kullanıcı bir argümanı veya flagi iletmezse, bunu isteyin. (Ayrıca bakınız: [Etkileşim](#etkileşim))
+
+**Asla bir komut istemine gerek duymayın.** Her zaman flaglerle veya argümanlarla girdi aktarmanın bir yolunu sağlayın. Eğer `stdin` etkileşimli bir terminal değilse, istemi atlayın ve yalnızca gerekli flag/arg'leri isteyin.
+
+**Tehlikeli bir şey yapmadan önce onaylayın.** Yaygın bir kural olarak kullanıcı, etkileşimli olarak çalışıyorsa `y` veya `yes` yazmasını veya `-f` veya `--force` flagini kullanmasını istemektir.
+
+”Tehlike" öznel bir terimdir ve farklı tehlike seviyeleri vardır:
+
+- **Hafif**: Bir dosyayı silmek gibi küçük, yerel bir değişikliktir. Onay isteyebilirsiniz veya istemeyebilirsiniz. Örneğin, kullanıcı açıkça "delete" gibi bir komut çalıştırıyorsa, muhtemelen sormanıza gerek yoktur.
+- **Orta**: Bir dizini silmek gibi daha büyük bir yerel değişiklik, bir tür kaynağı silmek gibi uzak bir değişiklik veya kolayca geri alınamayacak karmaşık bir toplu değişiklik. Genellikle burada onay istersiniz. Kullanıcı çalıştırmadan önce ne olacağını görebilmeleri için işlemi "dry run (prova)" yolu ile vermeyi düşünün.
+- **Ağır**: Uzak bir uygulamanın veya sunucunun tamamı gibi karmaşık bir şeyin silinmesi. Burada sadece onay istemek istemezsiniz — kazara onaylamayı zorlaştırmak istiyorsunuz. Onlardan, sildikleri şeyin adı gibi önemsiz olmayan bir şey yazmalarını isteyebilirsiniz. Alternatif olarak `--confirm = "dosya adı"` gibi bir flag geçmelerine izin verin, böylece hala script dosyalarına yazılabilir olur.
+
+Bir şeyleri kazara yok etmenin yollarının olup olmadığını düşünün. Örneğin, ayar dosyasındaki bir sayıyı 10'dan 1'e değiştirmenin, 9 şeyi örtülü olarak sileceği anlamına geldiği bir durumu düşünün (bu ciddi bir risk olarak görülmeli ve kazara yapılması zor olmalıdır).
+
+**Giriş veya çıkış bir dosya ise, `-` ile `stdin`'den okumayı veya `stdout`'a yazmayı destekleyin.** Bu, geçici bir dosya kullanmadan, başka bir komutun çıktısının sizin komutunuzun girişi olmasını veya tam tersini sağlar. Örneğin tar, `stdin`'den dosya çıkarabilir:
+
+```
+$ curl https://example.com/something.tar.gz | tar xvf -
+```
+
+**Eğer bir flag isteğe bağlı bir değeri kabul edebiliyorsa "none" gibi özel bir kelimeye izin verin.** Örneğin, `ssh -F`, alternatif bir `ssh_config` dosyasını isteğe olarak bağlı alır ve `ssh -F none`, SSH'yi ayar dosyası olmadan çalıştırır. Yalnızca boş bir değer kullanmayın; bu, argümanların, bir flag değeri mi yoksa bir argüman mı olduğu konusunda belirsizliğe neden olabilir.
+
+**Mümkünse argümanları, flagleri ve alt komutları sıradan bağımsız yapın.** Pek çok CLI'nin, özellikle de alt komutları olanların, çeşitli argümanları nereye koyabileceğiniz konusunda söylenmemiş kuralları vardır. Örneğin bir komutta, yalnızca alt komutun önüne koyarsanız çalışan `--foo` flagi bulunabilir:
+
+```
+mycmd --foo=1 subcmd
+works
+
+$ mycmd subcmd --foo=1
+unknown flag: --foo
+```
+
+Bu, kullanıcı için çok kafa karıştırıcı olabilir; özellikle de kullanıcıların bir komutu çalıştırırken yaptıkları en yaygın şeylerden biri olan son komutu geri almak için yukarı oka basması, sonuna başka bir seçenek yapıştırması ve onu çalıştırmak olduğu göz önüne alındığında tekrar çalıştırması gibi. Mümkünse her iki formu da eşdeğer hale getirmeye çalışın, ancak argüman ayrıştırıcınızın sınırlamalarıyla karşılaşabilirsiniz.
+
+**Sırları doğrudan flaglerden okumayın.** Bir komut bir sırrı kabul ettiğinde, örneğin `--password` argümanı aracılığıyla, argüman değeri `ps` çıktısında ve potansiyel olarak shell geçmişinde sızacaktır. Ve bu tür bir bayrak, sırlar için güvenli olmayan ortam değişkenlerinin kullanımını teşvik eder.
+
+Hassas verileri yalnızca dosyalar yoluyla, örneğin `--password-file` argümanıyla veya `stdin` aracılığıyla kabul etmeyi düşünün. `--password-file` argümanı, bir sırrın gizlice çok çeşitli yollarla iletilmesine olanak tanır.
+
+(`--password $(< password.txt)` komutunu kullanarak bir dosyanın içeriğini Bash'teki bir değişkene aktarmak mümkündür. Bu yaklaşım, dosyanın içeriğinin `ps` çıktısına sızması gibi güvenlik sorununa sahiptir. Bundan kaçınmak en iyisidir.) 
+
