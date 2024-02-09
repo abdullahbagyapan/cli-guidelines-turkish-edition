@@ -752,3 +752,35 @@ Dikkat edilmesi gereken bir şey var: işler *iyi* gittiğinde logları ilerleme
 *Alıntı: [Crash-only software: More than meets the eye](https://lwn.net/Articles/191059/).*
 
 **İnsanlar programınızı kötüye kullanacaklar.** Buna hazırlıklı olun. Bunu script dosyalarında kullanacaklar, kötü internet bağlantılarında kullanacaklar, aynı anda birçok örneğini çalıştıracaklar ve test etmediğiniz ortamlarda, tahmin etmediğiniz tuhaflıklarla kullanacaklar. (MacOS dosya sistemlerinin büyük/küçük harfe duyarlı olmadığını, aynı zamanda büyük/küçük harf koruyucu olduğunu da biliyor muydunuz?)
+
+### Geleceğe hazırlık
+
+Her türlü yazılımda, arayüzlerin kullanımdan kalkmasını uzun ve güzel bir şekilde dokümantasyonlamadan değişmemesi çok önemlidir. Alt komutlar, argümanlar, flagler, konfigürasyon dosyaları, ortam değişkenleri: bunların hepsi arayüzdür ve siz onları çalışır durumda tutmaya taahüt verdiniz. ([Semantic versionlama](https://semver.org/) bu kadar çok değişikliği mazur görebilir; eğer her ayın sonunda büyük bir versiyon değişiklikliği ortaya koyuyorsanız, bunun hiçbir anlamı yoktur.)
+
+**Yapabildiğiniz yerde değişiklikleri ayrı bir ek olarak yapın.** Bir flagin davranışını, geriye dönük uyumsuz olarak değiştirmek yerine arayüzü çok fazla şişirmediği sürece yeni bir flag ekleyebilirsiniz. (Ayrıca bakınız: [Flagleri arg'lere tercih edin](#argümanlar-ve-flagler).)
+
+**Ek olmayan bir değişiklik yapmadan önce uyarın.** En sonunda, bir arayüzü kırmaktan kaçınamayacağınızı göreceksiniz. Bunu yapmadan önce, kullanıcılarınızı program ile önceden uyarın: kullanımdan kaldırmak istediğiniz flagi geçtiklerinde, yakında değişeceğini söyleyin. Bugünki kullanımlarını geleceğe hazır hale getirmek için değiştirebilecekleri bir yol olduğundan emin olun ve onlara nasıl yapılacağını söyleyin.
+
+Mümkünse, kullanımlarını değiştirdiklerini tespit etmeli ve uyarıyı daha fazla göstermemelisiniz: nihayet değişikliği yayınladığınızda hiçbir şey fark etmeyecekler.
+
+**İnsanlar için çıktıyı değiştirmek genellikle iyidir.** Bir arayüzün kullanımını kolaylaştırmanın tek yolu onu yinelemektir ve eğer çıktı bir arayüz olarak kabul ediliyorsa, üzerinde yineleme yapamazsınız. Çıktıyı sabit tutmak için kullanıcılarınızı komut dosyalarında `--plain` veya `--json` kullanmaya teşvik edin (bkz. [Çıktı](#çıktı)).
+
+**Hepsini yakala alt komutunuz olmasın.** Muhtemelen çok kullanılan bir alt komutunuz varsa, insanların komutu kısaltmak adına alt komutu tamamen çıkarmalarına izin vermek isteyebilirsiniz. Örneğin, isteğe bağlı bir shell komutunu kullanan bir `run` komutunuz olduğunu varsayalım:
+
+```
+$ mycmd run echo "hello world"
+```
+
+Bunu, `mycmd`'nin ilk argümanı mevcut bir alt komutun adı değilse, kullanıcının `çalıştırmak` anlamına geldiğini varsayarsınız, böylece şunu yazabilirler:
+
+```
+$ mycmd echo "hello world"
+```
+
+Ancak bunun ciddi bir dezavantajı var: Artık mevcut kullanımları bozma riskine girmeden `echo` adında bir alt komut veya herhangi bir şey ekleyemezsiniz. Eğer `mycmd echo`'yu kullanan bir script dosyası varsa, kullanıcı programınızın yeni sürümüne geçtikten sonra tamamen farklı bir şey yapacaktır.
+
+**Alt komutların keyfi olarak kısaltılmasına izin vermeyin.** Örneğin, programınızın bir `install` alt komutu olduğunu varsayalım. Kullanıcıları biraz yazı yazmaktan kurtarmak için bunu eklemek istedinizde, `mycmd ins`, hatta sadece `mycmd i` gibi belirsiz olmayan herhangi bir öneki yazmalarına izin verdiniz ve bunun `mycmd install` için bir takma ad olmasını sağladınız. Artık sıkışıp kaldınız: `i` ile başlayan daha fazla komut ekleyemezsiniz, çünkü `i`'nin `install` anlamına geldiğini varsaydınız.
+
+Takma adlarda yanlış bir şey yok; yazı yazmaktan tasarruf etmek iyidir, ancak açık olmalı ve stabil kalmalıdırlar.
+
+**"Saatli bomba" yaratmayın.** Bundan 20 yıl sonrasını hayal edin. Programınızın bugün olduğu gibi çalışmaya devam edecek mi, yoksa internetteki bazı dış bağımlılıklar değiştiği veya artık desteklenmediği için çalışmayı durduracak mı? 20 yıl içinde var olmama ihtimali yüksek olan sunucu, şu anda bakımını yaptığınız sunucudur.
