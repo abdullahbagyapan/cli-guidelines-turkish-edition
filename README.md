@@ -39,7 +39,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Sağlamlık](#sağlamlık-1)
     * [Geleceğe hazırlık](#geleceğe-hazırlık)
     * [Sinyaller ve kontrol karakterleri](#sinyaller-ve-kontrol-karakterleri)
-    * Configuration
+    * [Konfigürasyon](#konfigürasyon)
     * Environment variables
     * Naming
     * Distribution
