@@ -783,4 +783,4 @@ Ancak bunun ciddi bir dezavantajı var: Artık mevcut kullanımları bozma riski
 
 Takma adlarda yanlış bir şey yok; yazı yazmaktan tasarruf etmek iyidir, ancak açık olmalı ve stabil kalmalıdırlar.
 
-**"Saatli bomba" yaratmayın.** Bundan 20 yıl sonrasını hayal edin. Programınızın bugün olduğu gibi çalışmaya devam edecek mi, yoksa internetteki bazı dış bağımlılıklar değiştiği veya artık desteklenmediği için çalışmayı durduracak mı? 20 yıl içinde var olmama ihtimali yüksek olan sunucu, şu anda bakımını yaptığınız sunucudur.g
+**"Saatli bomba" yaratmayın.** Bundan 20 yıl sonrasını hayal edin. Programınızın bugün olduğu gibi çalışmaya devam edecek mi, yoksa internetteki bazı dış bağımlılıklar değiştiği veya artık desteklenmediği için çalışmayı durduracak mı? 20 yıl içinde var olmama ihtimali yüksek olan sunucu, şu anda bakımını yaptığınız sunucudur.
