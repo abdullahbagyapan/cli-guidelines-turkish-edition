@@ -800,3 +800,50 @@ $  docker-compose up
 ```
 
 Programınız, olası temizliğin çalıştırılmadığı bir durumda başlatılmayı beklemelidir. (Ayrıca bakınız: [Crash-only software: More than meets the eye](https://lwn.net/Articles/191059/).)
+
+### Konfigürasyon
+
+Komut satırı araçlarının birçok farklı konfigürasyon türü ve bunları sağlamanın birçok farklı yolu vardır (flagler, ortam değişkenleri, proje düzeyinde konfigürasyon dosyaları). Her bir konfigürasyon parçasını sağlamanın en iyi yolu, aralarında *spesifiklik*, *kararlılık* ve *karmaşıklık* bulunan birkaç faktöre bağlıdır.
+
+Yapılandırma genellikle birkaç kategoriye ayrılır:
+
+1.  Komutun her çağrıda değişmesi muhtemel olan.
+
+    Örnekler:
+
+    - Hata ayıklama çıktısı düzeyini ayarlama.
+    - Bir programın güvenli modunu veya prova modunu etkinleştirme.
+
+    Öneri: **[Flagleri](#argümanlar-ve-flagler) kullanın**. [Ortam değişkenleri](#ortam-değişkenleri) yararlı olabilirde veya olmayabilirde.
+
+2.  Genellikle bir çağrıdan diğerine kararlıdır, ancak her zaman değil. Projeler arasında farklılık gösterebilir. Kesinlikle aynı proje üzerinde çalışan farklı kullanıcılar arasında farklılık gösterir.
+
+    Bu tür bir yapılandırma genellikle tek bir bilgisayara özgüdür.
+
+    Örnekler:
+
+    - Bir programın başlatılması için varsayılan olmayan bir path sağlama.
+    - Çıktının ne renk veya nasıl görünmesi gerektiğini belirleme.
+    - Tüm istekleri yönlendirmek için bir HTTP proxy sunucusu belirtme.
+
+    Öneri: **[Flagleri](#argümanlar-ve-flagler) ve [ortam değişkenlerini](#ortam-değişkenleri) kullanın**. Kullanıcılar, shell profillerindeki değişkenleri genel olarak veya belirli projelerde uygulanacak şekilde `.env` ayarlamak isteyebilir.
+
+    Eğer bu yapılandırma yeterince karmaşıksa, kendi başına bir yapılandırma dosyası gerektirebilir, ama genellikle ortam değişkenleri yeterince iyidir.
+
+3.  Tüm kullanıcılar için geçerli, proje içinde kararlı olan.
+
+    Bu, version kontrolüne ait bir yapılandırma türüdür. `Makefile`, `package.json` ve `docker-compose.yml` bunun örnekleridir.
+
+    Öneri: **Komuta özgü, version kontrollü bir dosya kullanın.**
+
+**XDG spesifikasyonunu takip edin.** 2010 Yılında X Masaüstü Grubu, şimdi [freedesktop.org](https://www.freedesktop.org/), config dosyalarının bulunabileceği temel dizinlerin konumu için bir spesifikasyon geliştirdi. Amaçlardan biri, genel amaçlı `~/.config` klasörünü destekleyerek kullanıcının ana dizinindeki "." dosyalarının çoğalmasını sınırlamaktı. XDG Temel Dizin spesifikasyonu ([tam hali](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html), [özet hali](https://wiki.archlinux.org/title/XDG_Base_Directory#Specification)) yarn, fish, wireshark, emacs, neovim, tmux vb. bildiğiniz ve sevdiğiniz diğer birçok proje tarafından destekleniyor.
+
+**Programınıza ait olmayan config dosyalarını otomatik olarak değiştirirseniz, kullanıcıdan onay isteyin ve tam olarak ne yaptığınızı söyleyin.** Mevcut bir config dosyasına eklemek yerine (ör. `/etc/crontab`) yeni bir yapılandırma dosyası oluşturmayı tercih edin (ör. `/etc/cron.d/myapp`). Eğer sistem genelinde bir config dosyasını değiştirmeniz gerekiyorsa, eklemelerinizi tanımlamak için bu dosyada tarihli bir açıklama kullanın.
+
+**Öncelik sırasına göre yapılandırma parametrelerini uygulayın.** İşte yapılandırma parametrelerinin en yüksekten en düşüğe önceliği:
+
+- Flagler
+- Çalışan shell ortam değişkenleri
+- Proje düzeyinde configler (örn. `.env`)
+- Kullanıcı düzeyinde yapılandırma
+- Sistem genelinde yapılandırma
