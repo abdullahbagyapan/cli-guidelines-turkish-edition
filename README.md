@@ -38,7 +38,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Alt komutlar](#alt-komutlar)
     * [Sağlamlık](#sağlamlık-1)
     * [Geleceğe hazırlık](#geleceğe-hazırlık)
-    * Signals and control characters
+    * [Sinyaller ve kontrol karakterleri](#sinyaller-ve-kontrol-karakterleri)
     * Configuration
     * Environment variables
     * Naming
