@@ -9,7 +9,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
 >
 > Yazım veya çeviri yanlışı gördüğünüz yerleri bildirirseniz çok sevinirim.
 >
-> Son güncellenme tarihi: *8/2/2024*
+> Son güncellenme tarihi: *9/2/2024*
 
 
 ## İçindekiler
@@ -783,4 +783,4 @@ Ancak bunun ciddi bir dezavantajı var: Artık mevcut kullanımları bozma riski
 
 Takma adlarda yanlış bir şey yok; yazı yazmaktan tasarruf etmek iyidir, ancak açık olmalı ve stabil kalmalıdırlar.
 
-**"Saatli bomba" yaratmayın.** Bundan 20 yıl sonrasını hayal edin. Programınızın bugün olduğu gibi çalışmaya devam edecek mi, yoksa internetteki bazı dış bağımlılıklar değiştiği veya artık desteklenmediği için çalışmayı durduracak mı? 20 yıl içinde var olmama ihtimali yüksek olan sunucu, şu anda bakımını yaptığınız sunucudur.
+**"Saatli bomba" yaratmayın.** Bundan 20 yıl sonrasını hayal edin. Programınızın bugün olduğu gibi çalışmaya devam edecek mi, yoksa internetteki bazı dış bağımlılıklar değiştiği veya artık desteklenmediği için çalışmayı durduracak mı? 20 yıl içinde var olmama ihtimali yüksek olan sunucu, şu anda bakımını yaptığınız sunucudur.g
