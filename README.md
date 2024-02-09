@@ -37,7 +37,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Etkileşim](#etkileşim)
     * [Alt komutlar](#alt-komutlar)
     * [Sağlamlık](#sağlamlık-1)
-    * Future-proofing
+    * [Geleceğe hazırlık](#geleceğe-hazırlık)
     * Signals and control characters
     * Configuration
     * Environment variables
