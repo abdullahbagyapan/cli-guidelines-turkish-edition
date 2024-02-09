@@ -784,3 +784,19 @@ Ancak bunun ciddi bir dezavantajı var: Artık mevcut kullanımları bozma riski
 Takma adlarda yanlış bir şey yok; yazı yazmaktan tasarruf etmek iyidir, ancak açık olmalı ve stabil kalmalıdırlar.
 
 **"Saatli bomba" yaratmayın.** Bundan 20 yıl sonrasını hayal edin. Programınızın bugün olduğu gibi çalışmaya devam edecek mi, yoksa internetteki bazı dış bağımlılıklar değiştiği veya artık desteklenmediği için çalışmayı durduracak mı? 20 yıl içinde var olmama ihtimali yüksek olan sunucu, şu anda bakımını yaptığınız sunucudur.
+
+### Sinyaller ve kontrol karakterleri
+
+**Eğer kullanıcı Ctrl-C'ye (INT sinyali) basarsa mümkün olan en kısa sürede çıkın.** Temizliğe başlamadan önce hemen bir şeyler söyleyin. Sonsuza dek askıda kalmaması için bir zaman aşımı ekleyin.
+
+**Kullanıcı uzun sürebilecek temizleme işlemleri sırasında Ctrl-C tuşlarına basarsa görmezden gelin.** Kullanıcıya tekrar Ctrl-C tuşlarına basarsa ne olacağını söyleyin, eğer öyle bir durumda bu yıkıcı bir eylemdir.
+
+Örneğin, Docker Compose'dan çıkarken, konteynerlerinizi düzgün bir şekilde kapatmak yerine hemen durmaya zorlamak için Ctrl-C'ye ikinci kez basabilirsiniz.
+
+```
+$  docker-compose up
+…
+^CGracefully stopping... (press Ctrl+C again to force)
+```
+
+Programınız, olası temizliğin çalıştırılmadığı bir durumda başlatılmayı beklemelidir. (Ayrıca bakınız: [Crash-only software: More than meets the eye](https://lwn.net/Articles/191059/).)
