@@ -41,7 +41,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Sinyaller ve kontrol karakterleri](#sinyaller-ve-kontrol-karakterleri)
     * [Konfigürasyon](#konfigürasyon)
     * [Ortam değişkenleri](#ortam-değişkenleri)
-    * Naming
+    * [İsimlendirme](#i̇simlendirme)
     * Distribution
     * Analytics
 
