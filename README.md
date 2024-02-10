@@ -913,3 +913,11 @@ Programınızın adı CLI'de özellikle önemlidir: kullanıcılarınız onu her
 Gerçek dünyadan bir örnek: Docker Compose, `docker compose` olmadan çok önce adı [`plum`](https://github.com/aanand/fig/blob/0eb7d308615bae1ad4be1ca5112ac7b6b6cbfbaf/setup.py#L26)'dı. Garip bir şekilde, tek elli bir seksek olduğu ortaya çıkınca, hemen adı [`fig`](https://github.com/aanand/fig/commit/0cafdc9c6c19dab2ef2795979dc8b2f48f623379) olarak yeniden adlandırıldı; yeni ismi daha kısa olmasının yanı sıra çok daha kolay şekilde akıyor.
 
 Daha fazlası için: [The Poetics of CLI Command Names](https://smallstep.com/blog/the-poetics-of-cli-command-names/)
+
+### Dağıtım
+
+**Mümkünse tekli binary dosya olarak dağıtın.** Eğer diliniz standart olarak çalıştırılabilir binary dosyaya derlenmiyorsa, Kullandığınız dilin [PyInstaller](https://pyinstaller.org/) gibi bir şeye sahip olup olmadığına bakın. Gerçekten tekli binary dosya olarak dağıtamıyorsanız, platformun yerel paket yükleyicisini kullanın, böylece diskten kolayca kaldırılamayan şeyleri dağıtmazsınız. Kullanıcının bilgisayarında hafif olun.
+
+Code linter gibi dile özgü bir araç yapıyorsanız, bu kural geçerli değildir - kullanıcının bilgisayarında bu dil için gerekli yorumlayıcı yüklü olduğunu varsaymak güvenlidir.
+
+**Programı kaldırmayı kolaylaştırın.** Eğer kullanıcı talimatlara ihtiyaç duyarsa, bunları yükleme talimatlarının en altına koyun - insanların yazılımı kaldırmak istedikleri en yaygın zamanlardan biri, yazılımı yükledikten hemen sonradır.
