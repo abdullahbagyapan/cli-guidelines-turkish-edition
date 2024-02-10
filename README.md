@@ -848,7 +848,7 @@ Yapılandırma genellikle birkaç kategoriye ayrılır:
 - Kullanıcı düzeyinde yapılandırma
 - Sistem genelinde yapılandırma
 
-### Ortam Değişkenleri
+### Ortam değişkenleri
 
 **Ortam değişkenleri, bir komutun çalıştırıldığı bağlama göre *değişen davranışları* içindir.** Bir ortam değişkeninin “ortamı” terminal oturumudur — yani komutun çalıştığı bağlam. Bu nedenle, ortam değişkenleri, bir komut her çalıştırıldığında, bir makinedeki terminal oturumları arasında veya bir projenin birkaç makinedeki örnekleri arasında değişebilir.
 
