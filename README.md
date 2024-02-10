@@ -921,3 +921,25 @@ Daha fazlası için: [The Poetics of CLI Command Names](https://smallstep.com/bl
 Code linter gibi dile özgü bir araç yapıyorsanız, bu kural geçerli değildir - kullanıcının bilgisayarında bu dil için gerekli yorumlayıcı yüklü olduğunu varsaymak güvenlidir.
 
 **Programı kaldırmayı kolaylaştırın.** Eğer kullanıcı talimatlara ihtiyaç duyarsa, bunları yükleme talimatlarının en altına koyun - insanların yazılımı kaldırmak istedikleri en yaygın zamanlardan biri, yazılımı yükledikten hemen sonradır.
+
+### Analitikler
+
+Kullanım metrikleri, kullanıcıların programınızı nasıl kullandığını, nasıl daha iyi hale getirebileceğinizi ve programda nereye odaklayacağınızı anlamanıza yardımcı olabilir. Ancak web sitelerinin aksine, komut satırı kullanıcıları, ortamlarının kontrolünün kendilerinde olmasını bekler ve programların arka planda onlara haber vermeden bir şeyler yapması şaşırtıcı gelir.
+
+**Onay almadan kullanım veya hata verilerini aramayın.** Kullanıcılar öğrenecek ve sinirlenecekler. Ne topladığınız, neden topladığınız, ne kadar anonim olduğu, nasıl anonimleştireceğiniz ve ne kadar süreyle saklayacağınız konusunda çok açık olun.
+
+Kullanıcılara verilere katkıda bulunmak isteyip istemediklerini sorun. Varsayılan olarak *katıl* seçerseniz, kullanıcılara web sitenizde veya ilk çalıştırmada bunu açıkça söyleyin ve devre dışı bırakmayı kolaylaştırın.
+
+Kullanım istatistiklerini toplayan proje örnekleri:
+
+- Angular.js, [özellik önceliklendirme adına Google Analytics'i kullanarak ayrıntılı analizler toplar](https://angular.io/cli/analytics). Açıkça onay vermeniz gerekir. Kurumunuzdaki Angular kullanımını izlemek istiyorsanız izleme kimliğini kendi Google Analytics mülkünüzü işaret edecek şekilde değiştirebilirsiniz.
+- Homebrew, metrikleri Google Analytics'e gönderir ve bunların uygulamalarını ayrıntılarıyla anlatan [güzel bir SSS bölümüne](https://docs.brew.sh/Analytics) sahiptir.
+- Next.js, varsayılan olarak [anonim kullanım istatistiklerini](https://nextjs.org/telemetry) toplar.
+
+**Analitik toplamanın alternatiflerini düşünün.**
+
+- Web dokümanlarınızı gözden geçirin. İnsanların CLI aracınızı nasıl kullandıklarını bilmek istiyorsanız, en iyi anlamak istediğiniz kullanım senaryolarına ilişkin bir dizi belge hazırlayın ve zaman içinde nasıl performans gösterdiklerini görün. İnsanların dokümanlarınızda ne aradığına bakın.
+- İndirmelerinizi gözden geçirin. Bu, kullanımı ve kullanıcılarınızın hangi işletim sistemlerini çalıştırdığını anlamak için kaba bir ölçü olabilir.
+- Kullanıcılarınızla konuşun. İnsanlara ulaşın ve aracınızı nasıl kullandıklarını sorun. Dokümanlarınızda ve repolarınızda geri bildirim ve yeni özellik isteklerini teşvik edin, geri bildirim gönderenlerden daha fazla bağlam elde etmeye çalışın.
+
+Daha fazlası için: [Open Source Metrics](https://opensource.guide/metrics/)
