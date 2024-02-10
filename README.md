@@ -895,3 +895,21 @@ Eğer bu sınırlamalar kullanılabilirliği veya güvenliği engelleyecek gibi 
 - Systemd birimlerindeki ortam değişkenleri `systemctl show` aracılığıyla okunabilir.
 
 Hassas bilgiler, yalnızca kimlik dosyaları, pipelar, `AF_UNIX` socketleri, gizli yönetim servisleri veya başka bir IPC mekanizması aracılığıyla kabul edilmelidir.
+
+### İsimlendirme
+
+"Takıntılı şekilde kısaltmaların kullanımına ve büyük harflerden kaçınmaya dikkat edin; [Unix], madenciler için kara akciğer ne ise, tekrarlayan stres bozukluğunuda o kabul eden insanlar tarafından icat edilen bir sistemdir. Uzun isimler, bir nehrin aşındırdığı taşlar gibi, üç harfli nubbinlere dönüşür” — Neal Stephenson, [In the Beginning was the Command Line](https://web.stanford.edu/class/cs81n/command.txt).
+
+Programınızın adı CLI'de özellikle önemlidir: kullanıcılarınız onu her zaman yazacaktır, hatırlanması ve yazılması kolay olmalıdır.
+
+**Basit ve akılda kalıcı bir kelime haline getirin.** Ancak çok genel değil, aksi takdirde diğer komutların ayak parmaklarına basar ve kullanıcıların kafasını karıştırırsınız. Örneğin, hem ImageMagick hem de Windows, `convert` komutunu kullandı.
+
+**Gerçekten ihtiyacınız varsa yalnızca küçük harfler ve kısa çizgiler kullanın.** `curl` iyi bir isim, `DownloadURL` değil.
+
+**Kısa tutun.** Kullanıcılar bunu her zaman yazacaklar. *Çok kısa* yapmayın: En kısa komutlar en iyi şekilde her zaman kullanılan `cd`, `ls`, `ps` gibi ortak programlara ayrılır.
+
+**Yazmasını kolaylaştırın.** İnsanların tüm gün komutunuzun adını yazmasını bekliyorsanız, bunu elleri için kolaylaştırın.
+
+Gerçek dünyadan bir örnek: Docker Compose, `docker compose` olmadan çok önce adı [`plum`](https://github.com/aanand/fig/blob/0eb7d308615bae1ad4be1ca5112ac7b6b6cbfbaf/setup.py#L26)'dı. Garip bir şekilde, tek elli bir seksek olduğu ortaya çıkınca, hemen adı [`fig`](https://github.com/aanand/fig/commit/0cafdc9c6c19dab2ef2795979dc8b2f48f623379) olarak yeniden adlandırıldı; yeni ismi daha kısa olmasının yanı sıra çok daha kolay şekilde akıyor.
+
+Daha fazlası için: [The Poetics of CLI Command Names](https://smallstep.com/blog/the-poetics-of-cli-command-names/)
