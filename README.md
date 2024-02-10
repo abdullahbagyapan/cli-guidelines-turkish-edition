@@ -40,7 +40,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Geleceğe hazırlık](#geleceğe-hazırlık)
     * [Sinyaller ve kontrol karakterleri](#sinyaller-ve-kontrol-karakterleri)
     * [Konfigürasyon](#konfigürasyon)
-    * Environment variables
+    * [Ortam değişkenleri](#ortam-değişkenleri)
     * Naming
     * Distribution
     * Analytics
