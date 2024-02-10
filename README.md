@@ -43,7 +43,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Ortam değişkenleri](#ortam-değişkenleri)
     * [İsimlendirme](#i̇simlendirme)
     * [Dağıtım](#dağıtım)
-    * Analytics
+    * [Analitikler](#analitikler)
 
 * Further reading
 
