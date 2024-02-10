@@ -847,3 +847,51 @@ Yapılandırma genellikle birkaç kategoriye ayrılır:
 - Proje düzeyinde configler (örn. `.env`)
 - Kullanıcı düzeyinde yapılandırma
 - Sistem genelinde yapılandırma
+
+### Ortam Değişkenleri
+
+**Ortam değişkenleri, bir komutun çalıştırıldığı bağlama göre *değişen davranışları* içindir.** Bir ortam değişkeninin “ortamı” terminal oturumudur — yani komutun çalıştığı bağlam. Bu nedenle, ortam değişkenleri, bir komut her çalıştırıldığında, bir makinedeki terminal oturumları arasında veya bir projenin birkaç makinedeki örnekleri arasında değişebilir.
+
+Ortam değişkenleri, flaglerin veya konfigürasyon parametrelerinin işlevselliğini kopyalayabilir veya bunlardan farklı olabilir. Yaygın konfigürasyon türlerinin ayrıntılı açıklamasını ve ortam değişkenlerinin ne zaman en uygun olduğuna ilişkin öneriler için bkz. [Konfigürasyon](#konfigürasyon).
+
+**Maksimum uyumluluk için ortam değişkeni adları yalnızca büyük harf, rakam ve alt çizgi içermelidir (ve bir sayıyla başlamamalıdır).** Bu, `O_O` ve `OWO`'nun ortam değişkeni adlarının geçerli olduğu tek emoticonlar olduğu anlamına gelir.
+
+> **Çevirmen Notu:** Emoticon, karakterler kullanarak yüz ifadesi oluşturmaktır. (Örn: `:-)` veya `:-(` )
+
+**Tek satırlık ortam değişkenleri hedefleyin.** Çok satırlı değerler mümkün olsa da `env` komutuyla kullanılabilirlik sorunları yaratırlar.
+
+**Yaygın olarak kullanılan isimleri kullanmaktan kaçının.** Standart olan POSIX ortam değişkenlerinin bir listesine [buradan](https://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap08.html) ulaşabilirsiniz.
+
+**Mümkün olduğu kadar konfigürasyon için genel amaçlı ortam değişkenlerinin değerlerini kontrol edin:**
+
+- `NO_COLOR`, rengi devre dışı bırakmak için (bkz. [Çıktı](#çıktı)) veya `FORCE_COLOR` rengi etkinleştirmek ve diğer renk ayarlarını yok saymak için.
+- `DEBUG`, daha ayrıntılı çıktıyı etkinleştirmek için.
+- `EDITOR`, eğer kullanıcıdan bir dosyayı düzenlemesini veya tek satırdan fazla girdi girmesini istemeniz gerekiyorsa.
+- Ağ işlemlerini gerçekleştirecekseniz `HTTP_PROXY`, `HTTPS_PROXY`, `ALL_PROXY` ve `NO_PROXY` (Kullandığınız HTTP kitaplığı bunları zaten kontrol ediyor olabilir).
+- `SHELL`, eğer kullanıcının tercih ettiği etkileşimli bir shell oturumunu açmanız gerekiyorsa (Bir shell script çalıştırmanız gerekiyorsa, `/bin/sh` gibi yorumlayıcı kullanın).
+- Terminale özgü kaçış dizilerini kullanacaksanız `TERM`, `TERMINFO` ve `TERMCAP`.
+- `TMPDIR`, eğer geçici dosyalar oluşturacaksanız.
+- `HOME`, konfigürasyon dosyalarını bulmak için.
+- `PAGER`, çıktıyı otomatik olarak sayfalamak istiyorsanız.
+- Ekran boyutuna bağlı çıktılar için `LINES` ve `COLUMNS` (örn. tablolar).
+
+**Uygun olduğunda ortam değişkenlerini `.env`'den okuyun.** Bir komut, eğer kullanıcının belirli bir dizinde çalıştığı sürece değişmesi muhtemel olmayan ortam değişkenlerini tanımlıyorsa, kullanıcıların bunları her seferinde belirtmek zorunda kalmadan farklı projeler için farklı şekilde yapılandırabilmesi için bunları yerel bir `.env` dosyasından da okuması gerekir. Birçok dilde `.env` dosyalarını okumak için kütüphaneler bulunur ([Rust](https://crates.io/crates/dotenv), [Node](https://www.npmjs.com/package/dotenv), [Ruby](https://github.com/bkeepers/dotenv)).
+
+**Konfigürasyon dosyasının yerine `.env` dosyasını kullanmayın.** `.env` dosyalarının birçok sınırlaması vardır:
+
+- Bir `.env` dosyası genellikle version kontrol sisteminde depolanmaz (Bu nedenle, içinde saklanan herhangi bir konfigürasyonun geçmişi yoktur).
+- Yalnızca tek bir veri türü vardır: string
+- Kötü organize edilmeye elverişlidir.
+- Karakter kodlaması sorunlarıyla karşılaşmayı kolaylaştırır.
+- Genellikle daha güvenli bir şekilde saklanması gereken hassas kimlik bilgileri ve anahtar materyaller içerir.
+
+Eğer bu sınırlamalar kullanılabilirliği veya güvenliği engelleyecek gibi görünüyorsa, özel bir konfigürasyon dosyası daha uygun olabilir.
+
+**Hassas bilgileri ortam değişkenlerinden okumayın.** Ortam değişkenleri hassas bilgileri saklamak için uygun olsa da, sızıntıya çok yatkın oldukları kanıtlanmıştır:
+
+- Dışarı aktarılan ortam değişkenleri her işleme gönderilir ve oradan log kayıtlarına kolayca sızabilir veya filtrelenebilir.
+- `Curl -H "Authorization: Bearer $BEARER_TOKEN"` gibi ortam değişkeni alıntıları, okunabilir olarak süreçlere sızacaktır (cURL, bir dosyadaki hassas başlıkları okumak için `-H @filename` alternatifini sunar).
+- Docker konteynerlarının ortam değişkenleri, Docker daemon'a erişimi olan herkes tarafından `docker inspect` aracılığıyla görüntülenebilir.
+- Systemd birimlerindeki ortam değişkenleri `systemctl show` aracılığıyla okunabilir.
+
+Hassas bilgiler, yalnızca kimlik dosyaları, pipelar, `AF_UNIX` socketleri, gizli yönetim servisleri veya başka bir IPC mekanizması aracılığıyla kabul edilmelidir.
