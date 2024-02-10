@@ -42,7 +42,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Konfigürasyon](#konfigürasyon)
     * [Ortam değişkenleri](#ortam-değişkenleri)
     * [İsimlendirme](#i̇simlendirme)
-    * Distribution
+    * [Dağıtım](#dağıtım)
     * Analytics
 
 * Further reading
