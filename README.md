@@ -45,7 +45,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha 
     * [Dağıtım](#dağıtım)
     * [Analitikler](#analitikler)
 
-* Further reading
+* [Daha Fazlası İçin](#daha-fazlası-i̇çin)
 
 
 ## Yazarlar
