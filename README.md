@@ -9,7 +9,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uyarlayarak daha iyi komut satırı
 >
 > Yazım veya çeviri yanlışı gördüğünüz yerleri bildirirseniz çok sevinirim.
 >
-> Son güncellenme tarihi: *10/2/2024*
+> Son güncellenme tarihi: *11/2/2024*
 
 
 ## İçindekiler
