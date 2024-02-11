@@ -1,7 +1,7 @@
 # Command Line Interface Guidelines
 
 
-Geleneksel UNIX ilkelerini alıp günümüze uygun şekilde güncelleyerek daha iyi komut satırı programları yazmanıza yardımcı olacak [açık kaynaklı](https://github.com/cli-guidelines/cli-guidelines) bir rehber.
+Geleneksel UNIX ilkelerini alıp günümüze uyarlayarak daha iyi komut satırı programları yazmanıza yardımcı olacak [açık kaynaklı](https://github.com/cli-guidelines/cli-guidelines) bir rehber.
 
 > **Çevirmen Notu**
 >
@@ -59,37 +59,37 @@ Squarespace'de mühendis, Docker Compose'un ortak yaratıcısı. \
 [@bfirsh](https://twitter.com/bfirsh)
 
 **Carl Tashian** \
-[Smallstep](https://smallstep.com/)'te yazılımcı avukatı, Zipcar'ın ilk mühendisi, Trove'un ortak yaratıcısı. \
+[Smallstep](https://smallstep.com/)'te öncü mühendis, Zipcar'ın ilk mühendisi, Trove'un ortak yaratıcısı. \
 [tashian.com](https://tashian.com/) [@tashian](https://twitter.com/tashian)
 
 **Eva Parish** \
-Squarespace'te Teknik Yazar, O'Reilly'ye katkıda bulunan.\
+Squarespace'te Teknik Yazar, O'Reilly destekçisi.\
 [evaparish.com](https://evaparish.com/) [@evpari](https://twitter.com/evpari)
 
-[Mark Hurrell](https://mhurrell.co.uk/) tarafından tasarlandı. Erken katkılarından dolayı Andreas Jansson'a ve Andrew Reitz, Ashley Williams, Brendan Falk, Chester Ramey, Dj Walker-Morgan, Jacob Maine, James Coglan, Michael Dwan, ve Steve Klabnik'e taslakları inceledikleri için teşekkür ederiz.
+[Mark Hurrell](https://mhurrell.co.uk/) tarafından tasarlandı. Erken katkılarından dolayı Andreas Jansson'a ve Andrew Reitz, Ashley Williams, Brendan Falk, Chester Ramey, Dj Walker-Morgan, Jacob Maine, James Coglan, Michael Dwan, ve Steve Klabnik'e taslakları incelediği için teşekkür ederiz.
 
 Eğer rehberi veya CLI tasarımını tartışmak istiyorsanız, [Discord'ta bize katılın](https://discord.gg/EbAW5rUCkE).
 
 
 ## Önsöz
 
-1980'lerde kişisel bilgisayarınız sizin için bir şeyler yapmasını isteseydiniz, `C:\>` veya `~$` ile karşılaştığınızda ne yazmanız gerektiğini bilmeniz gerekiyordu. Yardım, kalın, spiral ciltli kılavuzlar şeklinde gelirdi. Hata mesajları şeffaf değildi. Seni kurtaracak Stack Overflow yoktu. Ancak internet erişimine sahip olacak kadar şanslıysanız [Usenet](https://en.wikipedia.org/wiki/Usenet)'ten -*en az sizin kadar hüsrana uğramış insanlarla dolu, internet öncesi topluluk*- yardım alabilirdin. Ya sorununuzu çözmenize yardımcı olabilirlerdi ya da en azından biraz manevi destek ve dostluk sağlayabilirlerdi.
+1980'lerde kişisel bilgisayarınız sizin için bir şeyler yapmasını isteseydiniz, `C:\>` veya `~$` ile karşılaştığınızda ne yazmanız gerektiğini bilmeniz gerekiyordu. Yardım kalın, spiral ciltli kılavuzlar şeklinde gelirdi. Hata mesajları şeffaf değildi. Seni kurtaracak Stack Overflow yoktu. Ancak internet erişimine sahip olacak kadar şanslıysanız [Usenet](https://en.wikipedia.org/wiki/Usenet)'ten -*en az sizin kadar hüsrana uğramış insanlarla dolu, internet öncesi topluluk*- yardım alabilirdin. Ya sorununuzu çözmenize yardımcı olabilirler ya da en azından biraz manevi destek ve dostluk sağlayabilirlerdi.
 
-Kırk yıl sonra, bilgisayarlar herkes için çok daha erişilebilir hale geldi, bu da çoğu zaman tecrübeli son kullanıcının bilgisayar üzerinde kontrolü pahasına oldu. Çoğu cihazda komut satırı erişimi yok, bunun nedeni kısmen 4 tarafı çevrili şirketlerin ve uygulama mağazalarının kurumsal çıkarlarına aykırı olmasıdır.
+Kırk yıl sonra, bilgisayarlar herkes için çok daha erişilebilir hale geldi, bu da çoğu zaman tecrübeli son kullanıcının bilgisayar üzerinde kontrolü pahasına oldu. Çoğu cihazda komut satırı erişimi yok, bunun nedeni kısmen 4 tarafı çevrili şirketlerin ve uygulama mağazalarının kurumsal çıkarlarına aykırı olmasından.
 
-Günümüzde çoğu insan komut satırının ne olduğunu bilmiyor, hatta neden bunula uğraşmak istesinler. Bilgisayar bilimleri öncüsü Alan Kay'in [2017'deki bir röportajda](https://www.fastcompany.com/40435064/what-alan-kay-thinks-about-the-iphone-and-technology-now) söylediği gibi, "İnsanlar bilgisayarların neyle ilgili olduğunu anlamadıkları için iPhone'da olduğunu sanıyorlar ve bu yanılsama 'Guitar Hero'nun gerçek bir gitarla aynı olduğu yanılsaması kadar kötü."
+Günümüzde çoğu insan komut satırının ne olduğunu bilmiyor, hatta neden bunula uğraşmak istesinlerki. Bilgisayar bilimleri öncüsü Alan Kay'in [2017'deki bir röportajda](https://www.fastcompany.com/40435064/what-alan-kay-thinks-about-the-iphone-and-technology-now) söylediği gibi, "İnsanlar bilgisayarların neyle ilgili olduğunu anlamadıkları için iPhone'da olduğunu sanıyorlar ve bu yanılsama 'Guitar Hero'nun gerçek bir gitarla aynı olduğu yanılsaması kadar kötü."
 
-Kay'in bahsettiği "gerçek gitar" tam olarak CLI değil. CLI'nin gücünü sunan ve metin dosyalarında yazılan yazılımların ötesine geçen bilgisayarları programlamanın yollarından bahsediyordu. Kay'in öğrencileri arasında onlarca yıldır içinde yaşadığımız metin tabanlı zirveden kurtulmamız gerektiğine dair bir inanç var.
+Kay'in bahsettiği "gerçek gitar" tam olarak CLI değil. CLI'nin gücünü sunan ve metin dosyalarında yazılan yazılımların ötesinde, bilgisayarları programlamanın yollarından bahsediyordu. Kay'in öğrencileri arasında onlarca yıldır içinde yaşadığımız metin tabanlı lokal zirveden kurtulmamız gerektiğine dair bir inanç var.
 
-Bilgisayarları çok farklı şekilde programladığımız bir geleceği hayal etmek heyecan verici. Bugün bile *spreadsheet*'ler açık ara en popüler programlama dili, ve *no-code* hareketi, yetenekli programcılara yönelik yoğun talebin bir kısmında yerini almaya çalışırken hızla yayılıyor.
+Bilgisayarları çok farklı şekilde programladığımız bir geleceği hayal etmek heyecan verici. Bugün bile *spreadsheet*'ler açık ara en popüler programlama dili, ve *no-code* hareketi, yetenekli programcılara yönelik yoğun talebin bir kısmında yerini almak için hızla yayılıyor.
 
 ><b>Çevirmen Notu</b>: Spreadsheet'ler, Excel gibi verilerin tablo halinde hesaplanması, düzenlenmesi, analizi ve saklanması için kullanılan bilgisayar programları.
 
-Ancak gıcırtılı, onlarca yıllık kısıtlamaları ve açıklanamaz tuhaflıkları ile komut satırı hala bilgisayarların en *çokyönlü* köşesidir. Perdeyi geri çekmenize, gerçekte neler olup bittiğini görmenize ve bilgisayarla *GUI*'lerin karşılayamayacağı gelişmişlik ve derinlik düzeyinde yaratıcı şekilde etkileşime girmenize olanak tanır. Öğrenmek isteyen herkes için hemen hemen her dizüstü bilgisayarda mevcuttur. İnteraktif olarak kullanılabilir veya otomatikleştirilebilir. Sistemin diğer parçaları kadar hızlı değişmezler ve dengeli olmasında yaratıcı bir değer vardır.
+Ancak gıcırtılı, onlarca yıllık kısıtlamaları ve açıklanamaz tuhaflıkları ile komut satırı hala bilgisayarların en *çokyönlü* köşesidir. Perdeyi geri çekmenize, gerçekte neler olup bittiğini görmenize ve bilgisayarla, *GUI*'lerin karşılayamayacağı gelişmişlik ve derinlik düzeyinde yaratıcı şekilde etkileşime girmenize olanak tanıyor. Öğrenmek isteyen herkes için hemen hemen her dizüstü bilgisayarda mevcut. İnteraktif olarak kullanılabilir veya otomatikleştirilebilir. Sistemin diğer parçaları kadar hızlı değişmezler ve stabil olmasında yaratıcı bir değer vardır.
 
 Bu nedenle, hâlâ elimizdeyken, faydasını ve erişilebilirliğini en üst düzeye çıkarmaya çalışmalıyız.
 
-O ilk günlerden bu yana bilgisayarları nasıl programladığımız konusunda çok şey değişti. Geçmişteki komut satırı makine öncelikliydi -scripting platformunun üstündeki bir *REPL*'den biraz daha fazlasıydı-. Ancak genel amaçlı yorumlanan diller geliştikçe *shell script*in rolü daraldı. Günümüzünde komut satırı insan öncelikli -her türlü araca, sisteme ve platforma erişim sağlayan metin tabanlı bir kullanıcı arayüzü-. Geçmişte editör terminalin içindeydi; bugün ise terminal çoğunlukla editörün bir özelliğidir. Ve `git` benzeri çok özellikli komutlarda bir çoğalma oldu. Atomic fonksiyonlar yerine, komutların içindeki komutlar ve yüksek seviyeli komutlar tüm iş akışlarını gerçekleştirdi.
+O ilk günlerden bu yana bilgisayarları nasıl programladığımız konusunda çok şey değişti. Geçmişteki komut satırı makine öncelikliydi -scripting platformunun üstündeki bir *REPL*'den biraz daha fazlasıydı-. Ancak genel amaçlı yorumlanan diller geliştikçe *shell script*in rolü daraldı. Günümüzünde komut satırı insan öncelikli -her türlü araca, sisteme ve platforma erişim sağlayan metin tabanlı bir kullanıcı arayüzü-. Geçmişte editör terminalin içindeydi; bugün ise terminal çoğunlukla editörün bir özelliği. Ve `git` benzeri çok özellikli komutlarda bir çoğalma oldu. Küçük fonksiyonlar yerine, yüksek seviyeli ve komutların içindeki komutlar tüm iş akışlarını gerçekleştirdi.
 
 ><b>Çevirmen Notu</b>: REPL(*read–eval–print loop* / oku-işle-yazdır döngüsü), kullanıcı girdilerini alan, bunları işleyen ve sonucu kullanıcıya döndüren basit, etkileşimli bir bilgisayar programlama ortamıdır.
 
