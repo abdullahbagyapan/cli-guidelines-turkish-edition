@@ -122,7 +122,7 @@ Bunlar, iyi bir CLI tasarımının temel ilkeleri olarak gördüğümüz şeyler
 
 ### İnsan odaklı tasarım
 
-Geleneksel olarak UNIX komutları, öncelikli olarak diğer programlar tarafından kullanılacakları varsayımıyla yazılmıştır. Grafik uygulamalarından ziyade programlama dilindeki fonksiyonlarla daha fazla ortak noktaları vardı.
+Geleneksel olarak UNIX komutları, öncelikli olarak diğer programlar tarafından kullanılacakları varsayılarak yazılmıştır. Grafik uygulamalarından ziyade programlama dilindeki fonksiyonlarla daha çok ortak noktaları vardı.
 
 Günümüzde birçok CLI programı öncelikli olarak (veya hatta yalnızca) insanlar tarafından kullanılsa da, arayüz tasarımlarının çoğu hâlâ geçmişin yükünü taşıyor. Bu yükün bir kısmını atmanın zamanı geldi: Eğer bir komut öncelikle insanlar tarafından kullanılacaksa, önce insanlar için tasarlanmalıdır.
 
