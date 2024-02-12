@@ -22,7 +22,7 @@ Geleneksel UNIX ilkelerini alıp günümüze uyarlayarak daha iyi komut satırı
     * [Programlar arasında tutarlılık](#programlar-arasında-tutarlılık)
     * [(Sadece) Söylemek yeterli](#sadece-söylemek-yeterli)
     * [Keşif kolaylığı](#keşif-kolaylığı)
-    * [Norm olarak *konuşma*](#norm-olarak-konuşma)
+    * [Standart olarak *konuşma*](#standart-olarak-konuşma)
     * [Sağlamlık](#sağlamlık)
     * [Empati](#empati)
     * [Kaos](#kaos)
@@ -168,24 +168,24 @@ Anlaşılabilir CLI'ler kapsamlı dökümantasyonlara sahiptir, çok sayıda ör
 
 Alıntı: *The Design of Everyday Things (Don Norman), Macintosh Human Interface Guidelines*
 
-### Norm olarak konuşma
+### Standart olarak konuşma
 
-GUI tasarımı -özellikle ilk günlerinde-, metaforlardan yoğun bir şekilde yararlanıyordu: masaüstü, dosyalar, klasörler, geri dönüşüm klasörleri. Bu çok mantıklıydı çünkü bilgisayarlar hâlâ kendilerini meşrulaştırmaya çalışıyorlardı. Metaforların uygulanmasının kolaylığı, GUI'lerin CLI'lara sağladığı en büyük avantajlardan biriydi. Ancak ironik bir şekilde, CLI başından beri tesadüfi bir metaforu somutlaştırdı: *konuşma*.
+GUI tasarımı özellikle ilk günlerinde yoğun bir şekilde metaforlardan oluşuyordu: masaüstü, dosyalar, klasörler, geri dönüşüm klasörleri. Bu çok mantıklıydı çünkü bilgisayarlar hâlâ kendilerini meşrulaştırmaya çalışıyorlardı. Metaforların kolay uygulanabilirliği, GUI'lerin CLI'lara sağladığı en büyük avantajlardan biriydi. Ancak ironik bir şekilde, CLI başından beri tesadüfi bir metaforu somutlaştırdı: *konuşma*.
 
-Basit komutlar dışında, bir programı gerçekten çalıştırmak için genellikle birden fazla çalıştırmak gerekir. Genellikle bunun nedeni, ilk seferde doğru yapmanın zor olmasıdır. Kullanıcı bir komut yazar, bir hata alır, komutu değiştirir, farklı bir hata alır ve bu işlem çalışana kadar devam eder. Tekrarlanan başarısızlık yoluyla öğrenme, kullanıcının programla yaptığı bir konuşmaya benzer.
+Basit komutlar dışında, bir programı gerçekten çalıştırmak için genellikle birden fazla çağırmak gerekir. Genellikle bunun nedeni, ilk seferde doğru yapmanın zor olmasıdır. Kullanıcı bir komut yazar, bir hata alır, komutu değiştirir, farklı bir hata alır ve bu işlem çalışana kadar devam eder. Bu şekilde,tekrarlanan başarısızlık yoluyla, öğrenme kullanıcının programla yaptığı bir konuşmaya benzer.
 
-Ancak deneme-yanılma, tek etkileşim türü değildir. Başkaları da vardır:
+Ancak deneme-yanılma, tek konuşma türü değildir. Başkaları da vardır:
 
 - Bir işlemi ayarlamak için bir komut çalıştırmak ve ardından onu gerçekten kullanmaya başlamak için hangi komutların çalıştırılacağını öğrenmek.
-- Bir işlemi ayarlamak için birkaç komutun çalıştırılması ve ardından onu ayarlamak için son bir komutun çalıştırılması (örneğin, birden fazla `git add` ve ardından bir `git commit`).
+- Bir işlemi ayarlamak için birkaç komutun çalıştırılması ve ardından işlemi gerçekleştirmek için son bir komutun çalıştırılması (örneğin, birden fazla `git add` ve ardından bir `git commit`).
 - Bir sistemi keşfetmek (örneğin, bir dizin yapısını anlamak için çok fazla `cd` ve `ls` yapmak veya bir dosyanın geçmişini keşfetmek için `git log` ve `git show` yapmak).
 - Karmaşık bir işlemi gerçek anlamda çalıştırmadan önce prova yapmak.
 
-Komut satırı etkileşiminin konuşmaya dayalı doğasını kabul etmek, ilgili teknikleri cli tasarımına uygulayabileceğiniz anlamına gelir. Parametreler geçersiz olduğunda olası düzeltmeler önerebilir, kullanıcı çok adımlı bir süreçten geçtiğinde ara durumları netleştirebilir, korkutucu bir şey yapmadan önce her şeyin iyi gözüktüğünü onlara iletebilirsin.
+Komut satırı etkileşiminin konuşmaya dayalı doğasını kabul etmek, ilgili teknikleri CLI tasarımına uygulayabileceğiniz anlamına gelir. Kullanıcının girdiği parametreler geçersiz olduğunda olası düzeltmeler önerebilir, kullanıcı çok adımlı bir süreçten geçeceği zaman ara durumları netleştirebilir, korkutucu bir şey yapmadan önce her şeyin iyi gözüktüğünü onaylayabilirsin.
 
-İsteseniz de istemeseniz de kullanıcı yazılımınızla konuşuyor. En kötüsü, kendilerini aptal ve kırgın hissetmelerine neden olan düşmanca bir konuşmadır. En iyi ihtimalle, yeni bilgiler ve başarı duygusuyla gidecekleri yolları hızlandıran hoş bir alışveriştir.
+İsteseniz de istemeseniz de kullanıcı yazılımınızla konuşuyor. En kötüsü, kendilerini aptal ve kırgın hissetmelerine neden olan düşmanca bir konuşmadır. En iyisi, yeni bilgiler ve başarı duygusuyla gidecekleri yolları hızlandıran hoş bir alışveriştir.
 
-Daha fazlası için: [The Anti-Mac User Interface (Don Gentner and Jakob Nielsen)](https://www.nngroup.com/articles/anti-mac-interface/)
+*Daha fazlası için: [The Anti-Mac User Interface (Don Gentner and Jakob Nielsen)](https://www.nngroup.com/articles/anti-mac-interface/)*
 
 ### Sağlamlık
 
