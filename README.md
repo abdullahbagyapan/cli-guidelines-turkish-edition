@@ -213,7 +213,7 @@ Bu belgenin, onlarca yıllık komut satırı geleneğiyle çelişen tavsiyelerin
 
 Sizin de kuralları çiğnemeniz gereken bir zaman gelebilir. Geldiği zaman bunu niyetle ve amacınızın netliğiyle yapın.
 
-"Üretkenliğe veya kullanıcı memnuniyetine açıkça zararlı olduğunda bir standardı terk edin." - Jef Raskin, [The Humane Interface](https://en.wikipedia.org/wiki/The_Humane_Interface)
+"Bir standardı, üretkenliğe veya kullanıcı memnuniyetine açıkça zararlı olduğunda terk edin." - Jef Raskin, [The Humane Interface](https://en.wikipedia.org/wiki/The_Humane_Interface)
 
 ## Rehber
 
