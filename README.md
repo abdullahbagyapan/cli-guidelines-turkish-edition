@@ -100,20 +100,20 @@ Geleneksel UNIX felsefesinden esinlenerek, daha keyifli ve erişilebilir bir CLI
 
 ## Giriş
 
-Bu belge hem tasarım mimarisi felsefesini hem de somut yönergeleri kapsamaktadır. Ayrıca bu belge, yönergeler konusunda daha ağırdır çünkü yazılımcılar olarak bizim felsefemiz çok fazla felsefe yapmak değildir. Örnekler ile öğrenmeye inanıyoruz, bu yüzden örneklerden bol miktarda var.
+Bu doküman hem üst düzey tasarım felsefesini hem de somut yönergeleri kapsamaktadır. Ayrıca yönergeler konusunda daha ağır basmaktadır çünkü yazılımcılar olarak bizim felsefemiz çok fazla felsefe yapmak değildir. Örnekler ile öğrenmeye inanıyoruz, bu yüzden bol miktarda örnek koyduk.
 
 Bu rehber, *emacs* ve *vim* gibi tam ekran terminal programlarını kapsamaz. Tam ekran terminal programları niş projelerdir, çok azımız bir tane tasarlayabilecek konumda olacaktır.
 
-Bu kılavuz aynı zamanda genel olarak programlama dilleri ve araçlar konusunda da tarafsızdır.
+Aynı zamanda bu rehber genel olarak programlama dilleri ve araçlar konusunda da tarafsızdır.
 
 Bu rehber kimin için?
 
-- Bir CLI programı oluşturuyorsanız ve kullanıcı arayüzü tasarımı için ilkeler ve somut prensipler arıyorsanız, bu kılavuz tam size göre.
-- Profesyonel bir "CLI kullanıcı arayüzü tasarımcısı" iseniz bu harika, sizden bir şeyler öğrenmek isteriz.
-- 40 yıldır süre gelen CLI tasarım kurallarına aykırı olan çeşitli bariz yanlışlardan kaçınmak istiyorsanız bu kılavuz tam size göre.
-- Programınızın iyi tasarımı ve faydalı yardımlarıyla insanları memnun etmek istiyorsanız bu kılavuz kesinlikle size göre.
-- Bir GUI programı oluşturuyorsanız bu kılavuz size göre değildir -ama yine de okumaya karar verirseniz doğru olmayan GUI tasarım kalıplarını öğrenebilirsiniz.
-- Minecraft'ın sürükleyici, tam ekran CLI portunu tasarlıyorsanız bu kılavuz size göre değildir (görmek için sabırsızlanıyoruz!).
+- Bir CLI programı oluşturuyorsanız ve UI tasarımı için ilkeler ve somut prensipler arıyorsanız, bu kılavuz tam size göre.
+- Eğer profesyonel bir "CLI UI tasarımcısı" iseniz bu harika, sizden bir şeyler öğrenmek isteriz.
+- 40 yıllık CLI tasarım kurallarına aykırı olan bariz çeşitli yanlışlardan kaçınmak istiyorsanız bu kılavuz tam size göre.
+- Programınızın iyi tasarımı ve faydalı yardımlarıyla insanları memnun etmesini istiyorsanız bu kılavuz kesinlikle size göre.
+- Eğer bir GUI programı oluşturuyorsanız bu kılavuz size göre değildir — ama yine de okumaya karar verirseniz doğru olmayan GUI tasarım kalıplarını öğrenebilirsiniz.
+- Minecraft'ın sürükleyici, tam ekran CLI portatifini tasarlıyorsanız bu kılavuz size göre değildir (ama görmek için sabırsızlanıyoruz!).
 
 
 ## Felsefe
