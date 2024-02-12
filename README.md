@@ -201,7 +201,7 @@ Genel bir kural olarak sağlamlık, işi basit tutmaktan da gelebilir. Pek çok 
 
 Komut satırı araçları bir programcının yaratıcı araç takımıdır, bu nedenle kullanımı keyifli olmalıdır. Bu, onları bir video oyununa dönüştürmek veya çok fazla emoji kullanmak anlamına gelmez (ama doğal olarak bunda 😉 bir sorun yok). Bu, kullanıcıya onun yanında olduğunuzu, onun başarılı olmasını istediğinizi, sorunları ve bunların nasıl çözüleceği hakkında dikkatlice düşündüğünüz hissini vermek anlamına gelir.
 
-Onların bu şekilde hissetmelerini sağlayacak herhangi bir eylemler listesi yok, ancak tavsiyelerimize uymanın sizi o noktaya bir miktar ulaştıracağını umuyoruz. Kullanıcıyı memnun etmek, *her fırsatta beklentilerini* aşmak anlamına gelir ve bu da empatiyle başlar.
+Onların bu şekilde hissetmelerini sağlayacak herhangi bir eylemler listesi yok, ancak tavsiyelerimize uymanın sizi o noktaya bir miktar ulaştıracağını umuyoruz. Kullanıcıyı memnun etmek, her fırsatta *beklentilerini aşmak* anlamına gelir ve bu da empatiyle başlar.
 
 ### Kaos
 
