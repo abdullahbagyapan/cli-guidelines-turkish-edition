@@ -142,11 +142,11 @@ En önemlisi, uyumluluk için tasarım yapmak, insan odaklı tasarım yapmakla �
 
 Terminalin kuralları parmaklarımıza bağlıdır. Komut satırı sözdizimi, işaretler, ortam değişkenleri vb. hakkında bilgi edinerek ön maliyet ödemek zorunda kaldık, ancak programlar tutarlı olduğu sürece uzun vadede verimlilikle karşılığını veriyorlar.
 
-Mümkün olduğunda bir CLI, halihazırda var olan kalıpları takip etmelidir. Bu CLI'leri sezgisel ve tahmin edilebilir kılar ayrıca kullanıcıları verimli kılan şey de budur.
+Mümkün olduğunda bir CLI, halihazırda var olan kalıpları takip etmelidir. Bu, CLI'leri sezgisel ve tahmin edilebilir kılar ayrıca kullanıcıları verimli tutan şey de budur.
 
 Bununla birlikte bazen tutarlılık ile kullanım kolaylığı çelişiyor. Örneğin, uzun süredir kullanılan birçok UNIX komutu, varsayılan olarak fazla bilgi vermez; bu da, komut satırına aşina olmayan kişiler için kafa karışıklığına veya endişeye neden olabilir.
 
-Kuralları takip etmek programın kullanılabilirliğini tehlikeye attığında, artık kurallardan kopmanın zamanı gelmiş olabilir -ancak böyle bir karar dikkatle verilmelidir.
+Kuralları takip etmek programın kullanılabilirliğini tehlikeye attığında, artık kurallardan kopmanın zamanı gelmiş olabilir — ancak böyle bir karar dikkatle verilmelidir.
 
 ### (Sadece) Söylemek yeterli
  
