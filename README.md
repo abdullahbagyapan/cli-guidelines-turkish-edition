@@ -83,7 +83,7 @@ Kay'in bahsettiği "gerçek gitar" tam olarak CLI değil. CLI'nin gücünü suna
 
 Bilgisayarları çok farklı şekilde programladığımız bir geleceği hayal etmek heyecan verici. Bugün bile *spreadsheet*'ler açık ara en popüler programlama dili, ve *no-code* hareketi, yetenekli programcılara yönelik yoğun talebin bir kısmında yerini almak için hızla yayılıyor.
 
-><b>Çevirmen Notu</b>: Spreadsheet'ler, Excel gibi verilerin tablo halinde hesaplanması, düzenlenmesi, analizi ve saklanması için kullanılan bilgisayar programları.
+>**Çevirmen Notu:** Spreadsheet'ler, Excel gibi verilerin tablo halinde hesaplanması, düzenlenmesi, analizi ve saklanması için kullanılan bilgisayar programları.
 
 Ancak gıcırtılı, onlarca yıllık kısıtlamaları ve açıklanamaz tuhaflıkları ile komut satırı hala bilgisayarların en *çokyönlü* köşesidir. Perdeyi geri çekmenize, gerçekte neler olup bittiğini görmenize ve bilgisayarla, *GUI*'lerin karşılayamayacağı gelişmişlik ve derinlik düzeyinde yaratıcı şekilde etkileşime girmenize olanak tanıyor. Öğrenmek isteyen herkes için hemen hemen her dizüstü bilgisayarda mevcut. İnteraktif olarak kullanılabilir veya otomatikleştirilebilir. Sistemin diğer parçaları kadar hızlı değişmezler ve stabil olmasında yaratıcı bir değer vardır.
 
@@ -91,11 +91,11 @@ Bu nedenle, hâlâ elimizdeyken, faydasını ve erişilebilirliğini en üst dü
 
 O ilk günlerden bu yana bilgisayarları nasıl programladığımız konusunda çok şey değişti. Geçmişteki komut satırı makine öncelikliydi -scripting platformunun üstündeki bir *REPL*'den biraz daha fazlasıydı-. Ancak genel amaçlı yorumlanan diller geliştikçe *shell script*in rolü daraldı. Günümüzünde komut satırı insan öncelikli -her türlü araca, sisteme ve platforma erişim sağlayan metin tabanlı bir kullanıcı arayüzü-. Geçmişte editör terminalin içindeydi; bugün ise terminal çoğunlukla editörün bir özelliği. Ve `git` benzeri çok özellikli komutlarda bir çoğalma oldu. Küçük fonksiyonlar yerine, yüksek seviyeli ve komutların içindeki komutlar tüm iş akışlarını gerçekleştirdi.
 
-><b>Çevirmen Notu</b>: REPL(*read–eval–print loop* / oku-işle-yazdır döngüsü), kullanıcı girdilerini alan, bunları işleyen ve sonucu kullanıcıya döndüren basit, etkileşimli bir bilgisayar programlama ortamıdır.
+>**Çevirmen Notu:** REPL(*read–eval–print loop* / oku-işle-yazdır döngüsü), kullanıcı girdilerini alan, bunları işleyen ve sonucu kullanıcıya döndüren basit, etkileşimli bir bilgisayar programlama ortamıdır.
 
 Geleneksel UNIX felsefesinden esinlenerek, daha keyifli ve erişilebilir bir CLI ortamını teşvik etme ilgisinden yola çıkarak ve programcılar olarak deneyimlerimizin rehberliğinde, komut satırı programları oluşturmaya yönelik en iyi uygulamaları ve tasarım ilkelerini yeniden gözden geçirme zamanının geldiğine karar verdik.
 
-<b>Yaşasın komut satırı!</b>
+**Yaşasın komut satırı!**
 
 
 ## Giriş
