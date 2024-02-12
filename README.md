@@ -128,15 +128,15 @@ Günümüzde birçok CLI programı öncelikli olarak (veya hatta yalnızca) insa
 
 ### Birlikte çalışan basit parçalar
 
-[Orijinal UNIX felsefesinin](https://en.wikipedia.org/wiki/Unix_philosophy) temel ilkelerinden biri olan temiz interfacelere sahip küçük, basit programların daha büyük sistemler oluşturmak için birleştirilebileceği fikridir. Bu programlara daha fazla özellik eklemek yerine, gerektiğinde yeniden birleştirilebilecek kadar modüler programlar yaparsınız.
+[Orijinal UNIX felsefesinin](https://en.wikipedia.org/wiki/Unix_philosophy) temel ilkelerinden biri olan temiz mimariye sahip küçük, basit programların daha büyük sistemler oluşturmak için birleştirilebileceği fikridir. Bu programlara daha fazla özellik eklemek yerine, gerektiğinde yeniden birleştirilebilecek kadar modüler programlar yaparsınız.
 
-Eski günlerde, pipelar ve shell scriptler birlikte program oluşturma süreci çok önemli bir rol oynadı. Çok amaçlı yorumlanan dillerin yükselişiyle belki rolleri azalmış olabilir, ancak kesinlikle ortadan kalkmadılar. Dahası, CI/CD, orkestrasyon ve konfigürasyon yönetimi biçimindeki büyük ölçekli otomasyonlar gelişti. Artık programları birleştirilebilir hale getirmek her zamankinden daha önemli.
+Eski günlerde pipelar ve shell scriptler, birlikte program oluşturma sürecinde çok önemli bir rol oynadı. Genel amaçlı yorumlanan dillerin yükselişiyle belki rolleri azalmış olabilir, ancak kesinlikle ortadan kalkmadılar. Dahası, CI/CD, orkestrasyon ve konfigürasyon yönetimi biçimindeki büyük ölçekli otomasyonlar gelişti. Artık programları birleştirilebilir hale getirmek her zamankinden daha önemli.
 
 Neyse ki, tam da bu amaç için tasarlanmış UNIX ortamının köklü kuralları bugün hala bize yardımcı oluyor. Standard in/out/err, sinyaller, çıkış kodları ve diğer mekanizmalar, farklı programların birbirine güzel bir şekilde oturmasını sağladı. Düz, satır tabanlı metnin komutlar arasında aktarılması kolaydır. Çok daha yeni bir buluş olan JSON, ihtiyaç duyduğumuzda bize daha fazla yapı sağlıyor ve komut satırı araçlarını web ile daha kolay entegre etmemizi sağlıyor.
 
-Hangi yazılımı geliştiriyor olursanız olun, insanların onu tahmin etmediğiniz şekillerde kullanacağından kesinlikle emin olabilirsiniz. Yazılımınız daha büyük bir sistemin parçası haline gelecek -tek seçeneğiniz yazılımınızın uyumlu bir parça olup olmayacağıdır.
+Hangi yazılımı geliştiriyor olursanız olun, insanların onu tahmin etmediğiniz şekillerde kullanacağından kesinlikle emin olabilirsiniz. Yazılımınız daha büyük bir sistemin parçası haline *gelecek* — tek seçeneğiniz yazılımınızın uyumlu bir parça olup olmayacağıdır.
 
-En önemlisi, uyumluluk için tasarım yapmak, önce insan odaklı tasarım yapmakla çelişmek zorunda değildir. Bu belgedeki tavsiyelerin çoğu her ikisine de nasıl ulaşılacağıyla ilgilidir.
+En önemlisi, uyumluluk için tasarım yapmak, insan odaklı tasarım yapmakla çelişmek zorunda değildir. Bu belgedeki tavsiyelerin çoğu her ikisine de nasıl ulaşılacağıyla ilgilidir.
 
 ### Programlar arasında tutarlılık
 
