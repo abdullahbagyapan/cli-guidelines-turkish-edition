@@ -426,13 +426,13 @@ Daha fazlası için: ["Do What I Mean"](http://www.catb.org/~esr/jargon/html/D/D
 
 ### Dokümantasyon
 
-[Yardım metninin](#yardım) amacı, programın ne olduğu, hangi seçeneklerin mevcut olduğu ve en yaygın görevlerin nasıl gerçekleştirileceği hakkında kısa ve hızlı şekilde bilgi vermektir. Öte yandan dokümantasyon, tüm ayrıntılara girdiğiniz yerdir. Burası insanların, programınızın ne işe yaradığını, ne işe yaramadığını, nasıl çalıştığını ve ihtiyaç duyabilecekleri her şeyi nasıl yapabileceklerini anlayacakları yerdir.
+[Yardım metninin](#yardım) amacı, programın ne olduğu, hangi seçeneklerin mevcut olduğu ve en yaygın görevlerin nasıl gerçekleştirileceği hakkında kısa ve hızlı bir şekilde bilgi vermektir. Öte yandan dokümantasyon, tüm ayrıntılara girdiğiniz yerdir. Burası insanların, programınızın ne işe yaradığını, ne işe yaramadığını, nasıl çalıştığını ve ihtiyaç duyabilecekleri her şeyi nasıl yapabileceklerini anlayacakları yerdir.
 
 **Web tabanlı dokümantasyon sağlayın.** İnsanların programınınız dokümantasyonunu çevrimiçi olarak arayabilmeleri ve diğer kişilerle belirli bölümleri paylaşabilmeleri gerekir. Web mevcut olan en kapsayıcı dokümantasyon formatıdır.
 
 **Terminal tabanlı dokümantasyon sağlayın.** Terminaldeki dokümantasyonun birkaç güzel özelliği vardır: erişimi hızlıdır, programın yüklü sürümüyle senkronize kalır ve internet bağlantısı olmadan çalışır.
 
-**Man sayfaları sağlamayı dikkate alın.** Unix'in orijinal dokümantasyon sistemi olan [man sayfaları](https://en.wikipedia.org/wiki/Man_page) günümüzde hala kullanılmaktadır ve birçok kullanıcı programınınz hakkında bilgi edinmeye çalışırken ilk adım olarak `man mycmd`'yi refleks olarak kontrol edecektir. Dokümantasyon oluşturmayı kolaylaştırmak için [ronn](http://rtomayko.github.io/ronn/ronn.1.html) gibi bir araç kullanabilirsiniz (ayrıca web tabanlı dokümantasyon da oluşturabilir).
+**Man sayfaları oluşturmayı dikkate alın.** Unix'in orijinal dokümantasyon sistemi olan [man sayfaları](https://en.wikipedia.org/wiki/Man_page) günümüzde hala kullanılmaktadır ve birçok kullanıcı programınınz hakkında bilgi edinmeye çalışırken ilk adım olarak `man mycmd`'yi refleks olarak kontrol edecektir. Man sayfası oluşturmayı kolaylaştırmak için [ronn](http://rtomayko.github.io/ronn/ronn.1.html) gibi bir araç kullanabilirsiniz (ayrıca web tabanlı dokümantasyon da oluşturabilir).
 
 Ancak, herkes man sayfalarını bilmiyor ve tüm platformlarda çalışmıyor, bu nedenle terminal tabanlı dokümanlarınıza programınızın kendisiyle de erişilebildiğinden emin olmalısınız. Örneğin, `git` ve `npm`, man sayfalarını `help` alt komutu aracılığıyla erişilebilir kılar, bu nedenle `npm help ls` ve `man npm-ls` eşdeğerdir.
 
