@@ -219,11 +219,11 @@ Sizin de kuralları çiğnemeniz gereken bir zaman gelebilir. Geldiği zaman bun
 
 Bu rehber, komut satırı programınızı daha iyi hale getirmek için yapabileceğiniz belirli şeylerin bir derlemesidir.
 
-İlk bölüm, izlemeniz gereken temel şeyleri içerir. Bunları yanlış anlamak programınızın kullanımı zorlaştıracak veya programınızın kötü bir CLI örneği olmasına sebep olacaktır.
+İlk bölüm, takip etmeniz gereken temel şeyleri içerir. Bunları yanlış anlamak programınızın kullanımı zorlaştıracak veya programınızın kötü bir CLI örneği olmasına sebep olacaktır.
 
-Geri kalan bölümler ise *olursa daha güzel olur* tarzındadır. Bunları eklemek için yeterince zamanınız ve enerjiniz varsa, programınız ortalama programlardan çok daha güzel olacaktır.
+Geriye kalan bölümler ise olursa güzel olur. Bunları eklemek için yeterince zamanınız ve enerjiniz varsa, programınız ortalama programlardan çok daha güzel olacaktır.
 
-Buradaki ana fikir, aslında programınızın tasarımı hakkında çok fazla zaman harcamaya gerek olmadığıdır: sadece bu kurallara uyarak programınız muhtemelen daha iyi olacaktır. Öte yandan, tasarladıysanız ve programınız için bir kuralın yanlış olduğunu belirlediyseniz bu bir sorun değildir (Keyfi kurallara uymadığınız için programınızı reddedecek herhangi bir otorite yoktur).
+Buradaki ana fikir, aslında programınızın tasarımı hakkında çok fazla zaman harcamaya gerek olmadığıdır: muhtemelen sadece bu kurallara uyarsanız programınız daha iyi olacaktır. Öte yandan düşünüp tasarladıysanız ve programınız için hangi kuralın yanlış olduğunu belirlediyseniz bu bir sorun değildir (Keyfi kurallara uymadığınız için programınızı reddedecek herhangi bir otorite yoktur).
 
 Ayrıca bu kurallar kesinleşmiş değildir. Eğer bir kurala iyi bir nedenden ötürü katılmıyorsanız, [bir değişiklik önereceğinizi](https://github.com/cli-guidelines/cli-guidelines) umuyoruz.
 
