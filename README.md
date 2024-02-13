@@ -231,7 +231,7 @@ Ayrıca bu kurallar kesinleşmiş değildir. Eğer bir kurala iyi bir nedenden �
 
 Uymanız gereken birkaç temel kural var. Bunları yanlış anladığınızda programınızın kullanımı ya çok zor olacak ya da tamamen bozulacaktır.
 
-<b>Mümkün olduğunca "<i>command-line argument parsing</i>" kütüphanelerini kullanın.</b> Ya *built-in* olmalı ya da 3.parti bir yazılım olmalı. Argümanları ve bayrakları ayırmayı, yardım metnini ve hatta yazım önerilerini mantıklı bir şekilde ele alacaklardır.
+**Mümkün olduğunca "command-line argument parsing" kütüphanelerini kullanın.** Ya dilin kendi içinde olmalı ya da iyi bir 3.parti yazılım olmalı. Argümanları ve bayrakları ayırmayı, yardım metnini ve hatta yazım önerilerini mantıklı bir şekilde ele alacaklardır.
 
 İşte beğendiklerimizden bazıları:
 
@@ -249,9 +249,9 @@ Uymanız gereken birkaç temel kural var. Bunları yanlış anladığınızda pr
 * Rust: [clap](https://clap.rs/), [structopt](https://github.com/TeXitoi/structopt)
 * Swift: [swift-argument-parser](https://github.com/apple/swift-argument-parser)
 
-**Başarı durumunda 0 çıkış kodunu döndür, başarısızlık durumunda sıfırdan farklı bir kod döndür.** Çıkış kodları, bir programın başarılı çalışıp çalışmadığını gösterir; bu nedenle bunu doğru şekilde bildirmelisiniz. Sıfır olmayan çıkış kodlarını en önemli hata kodlarıyla eşleştirin.
+**Başarı durumunda 0, başarısızlık durumunda sıfırdan farklı bir çıkış kodu döndür.** Çıkış kodları, bir programın başarılı çalışıp çalışmadığını gösterir; bu nedenle bunu doğru şekilde bildirmelisiniz. Sıfır olmayan çıkış kodlarını en önemli hata kodlarıyla eşleştirin.
 
-**Çıktıları `stdout`'a bastır.** Programınızın birincil çıktıları stdout'a gitmelidir. Ayrıca makine tarafından okunabilen her şeyde stdout(varsayılan olarak herşeyin basıldığı bir kanal)'a gitmelidir.
+**Çıktıları `stdout`'a bastır.** Programınızın birincil çıktıları `stdout`'a gitmelidir. Ayrıca makine tarafından okunabilen her şeyde `stdout`(varsayılan olarak herşeyin basıldığı bir kanal)'a gitmelidir.
 
 **Bilgi mesajlarını `stderr`'a bastır.** Log mesajları, hatalar vb. tümü `stderr`'e gönderilmelidir. Bu, birden fazla komut bir araya getirildiğinde mesajların kullanıcıya görüntülendiği ve bir sonraki komuta aktarılmadığı anlamına gelir.
 
