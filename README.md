@@ -456,15 +456,15 @@ DESCRIPTION
 
 ### Çıktı
 
-**Okunur çıktılar çok önemli.** Önce insan, sonra makineler gelir. En basit ve doğrudan bir çıktının (stdout veya stderr) olup olmadığını anlamanın yolu *TTY* olup olmadığıdır. Hangi dili kullanıyor olursanız olun, bunu yapmak için bir yardımcı program veya kitaplık bulunacaktır (örn. [Python](https://stackoverflow.com/questions/858623/how-to-recognize-whether-a-script-is-running-on-a-tty), [Node](https://nodejs.org/api/process.html#process_a_note_on_process_i_o), [Go](https://github.com/mattn/go-isatty)).
+**En önemlisi okunabilir çıktılar.** Önce insan, sonra makineler gelir. En basit ve doğrudan bir çıktının (`stdout` veya `stderr`) olup olmadığını anlamanın yolu *TTY* olup olmadığıdır. Hangi dili kullanıyor olursanız olun, bunu yapmak için bir yardımcı program veya kitaplık bulunacaktır (örn. [Python](https://stackoverflow.com/questions/858623/how-to-recognize-whether-a-script-is-running-on-a-tty), [Node](https://nodejs.org/api/process.html#process_a_note_on_process_i_o), [Go](https://github.com/mattn/go-isatty)).
 
 Daha fazlası için: [what a TTY is](https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con/4132#4132)
 
-**Kullanılabilirliği etkilemediği yerlerde makine tarafından okunabilir bir çıktıya sahip olun.** Metin akışları UNIX'teki evrensel arayüzdür. Programlar genellikle metin satırı basar veya girdi olarak metin satırı bekler, bu nedenle birden fazla programı bir arada kullanabilirsiniz. Bu normalde script yazabilmek için yapılır, ancak aynı zamanda programları kullanan insanların kullanılabilirliğine de yardımcı olabilir. Örneğin, bir kullanıcı çıktıyı `grep`'e yönlendirebilmelidir.
+**Kullanılabilirliği etkilemediği yerlerde makine tarafından okunabilir bir çıktıya sahip olun.** Metinlerin birbirine aktarılması, UNIX'in evrensel bir arayüzüdür. Programlar genellikle metin satırı basar veya girdi olarak metin satırı bekler, bu nedenle birden fazla programı bir arada kullanabilirsiniz. Bu normalde script yazabilmek için yapılır, ancak aynı zamanda programları kullanan insanların kullanılabilirliğine de yardımcı olabilir. Örneğin, bir kullanıcı çıktıyı `grep`'e yönlendirebilmelidir.
 
 "Her programın çıktısını başka bir programın girdisi olarak bekleyin" — Doug McIlroy
 
-**İnsan tarafından okunabilir çıktı makine tarafından okunabilir çıktıyı keserse, çıktıyı `grep` veya `awk` gibi araçlarla entegrasyon için düz ve tablo biçiminde görüntülemek için `--plain` kullanın.** Bazı durumlarda, çıktıyı insan tarafından okunabilir hale getirmek için farklı bir şekilde çıktı almanız gerekebilir.
+**İnsan tarafından okunabilir çıktı makine tarafından okunabilir çıktıyı bozarsa, çıktıyı `grep` veya `awk` gibi araçlarla entegrasyon için düz ve tablo biçiminde görüntülemek için `--plain` kullanın.** Bazı durumlarda, çıktıyı insan tarafından okunabilir hale getirmek için farklı bir şekilde çıktı almanız gerekebilir.
 
 Örneğin, satır satır bir tablo görüntülüyorsanız, ekran boyutundan dolayı bilgiyi tabloya sığdırmak için birden çok satıra bölmeyi seçebilirsiniz. Bu durum satır başına bir veri beklenen davranışını bozar, bu nedenle scriptler için tüm bu işlemleri devre dışı bırakan ve satır başına bir kayıt çıkaran `--plain` flagini sağlamalısınız.
 
