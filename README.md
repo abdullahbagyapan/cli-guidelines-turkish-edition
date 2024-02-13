@@ -257,14 +257,14 @@ Uymanız gereken birkaç temel kural var. Bunları yanlış anladığınızda pr
 
 ### Yardım
 
-**Hiçbir seçenek girilmediğinde yardım metnini, `-h` bayrağını veya `--help` bayrağını görüntüleyin.**
+**`-h`, `--help` bayrağı girildiğinde veya hiçbiri girilmediğinde yardım metnini görüntüleyin.**
 
-**Varsayılan olarak kısa bir yardım metni görüntüle.** Yapabiliyorsanız, `myapp` veya `myapp altkomut` çalıştırıldığında varsayılan olarak yardım metnini görüntüleyin. Tabi eğer programınız çok basit olmadığı ve varsayılan olarak bariz bir şey yapmadığı sürece(örnek olarak `ls`) veya girilenleri okuyan bir programınız varsa (örnek olarak `cat`).
+**Varsayılan olarak kısa bir yardım metni görüntüleyin.** Yapabiliyorsanız, `myapp` veya `myapp altkomut` çalıştırıldığında varsayılan olarak yardım metnini görüntüleyin. Tabi eğer programınız çok basit olmadığı ve varsayılan olarak bariz bir şey yapmadığı sürece(örnek olarak `ls`) veya etkileşimli olarak girdileri okuyan bir programınız varsa (örnek olarak `cat`).
 
 Kısa yardım metni yalnızca şunları içermelidir:
 
 - Programınızın ne yaptığının açıklaması.
-- Bir veya iki örnek çağrı.
+- Bir veya iki tane örnek çağrı.
 - Çok fazla olmadığı sürece bayrakların açıklamaları.
 - Daha fazla bilgi için `--help` bayrağını iletme talimatı.
 
@@ -299,7 +299,7 @@ Example:
 For a listing of options, use jq --help.
 ```
 
-**`-h` ve `--help` bayrakları geçildiğinde tam yardım metnini göster.** Bunların hepsi yardım göstermeli:
+**`-h` veya `--help` bayrakları geçildiğinde tam yardım metnini gösterin.** Bunların hepsi yardım göstermeli:
 
 ```
 $ myapp
@@ -307,9 +307,9 @@ $ myapp --help
 $ myapp -h
 ```
 
-Eğer `-h` bayrağı eklenmişse diğer işaretleri ve argümanları göz ardı edin ve yardımı gösterin. `-h` bayrağını herhangi bayrağın ezmesine izin vermeyin.
+Eğer `-h` bayrağı eklenmişse diğer bayrakları ve argümanları göz ardı edin, ve yardımı gösterin. `-h` bayrağını herhangi birşeyin ezmesine izin vermeyin.
 
-Eğer programınız `git` benzeriyse, aşağıdakiler de yardım sunmalıdır:
+Eğer programınız `git` benzeriyse, aşağıdakiler de yardım metnini göstermelidir:
 
 ```
 $ myapp help
@@ -324,13 +324,13 @@ $ myapp subcommand -h
 
 **Örneklerle yol gösterin.** Kullanıcılar diğer dokümantasyon biçimleri yerine örnekleri kullanma eğilimindedir; bu nedenle, bunları, özellikle yaygın karmaşık kullanımlar olmak üzere, yardım sayfasında ilk önce gösterin. Ne yaptığını açıklamaya yardımcı oluyorsa ve çok uzun değilse gerçek çıktıyı da gösterin.
 
-Bir hikayeyi bir dizi örnekle anlatarak karmaşık kullanımlara doğru yol alabilirsiniz.
+Bir hikayeyi örneklerle anlatarak, karmaşık kullanımlara doğru yol alabilirsiniz.
 
-**Bir sürü örneğiniz varsa, bunları başka bir yere koyun.** Örneğin bir web veya bir komut cheat sheet sayfası Kapsamlı, gelişmiş örneklere sahip olmak faydalıdır ancak yardım metninizi çok uzun yapmak istemezsiniz.
+**Bir sürü örneğiniz varsa, bunları başka bir yere koyun,** örneğin bir web veya bir komut cheat sheet sayfası. Kapsamlı, gelişmiş örneklere sahip olmak faydalıdır ancak yardım metninizi çok uzun yapmak istemezsiniz.
 
-Daha karmaşık kullanım durumları için, örneğin başka bir araçla entegrasyon yaparken, kapsayıcı bir eğitim yazmak uygun olabilir.
+Daha karmaşık kullanım durumları için, örneğin başka bir araçla entegrasyon yaparken, kapsamlı bir öğretici yazmak uygun olabilir.
 
-**Yardım metninin başında en sık kullanılan bayrakları ve komutları görüntüleyin.** Çok sayıda bayrağa sahip olmak sorun değil, ancak gerçekten yaygın olanlarınız varsa, önce onları gösterin. Örneğin, `git` başlangıç komutlarını ve en sık kullanılan alt komutları önce görüntüler:
+**Yardım metninin başında en sık kullanılan bayrakları ve komutları görüntüleyin.** Çok sayıda bayrağa sahip olmak sorun değil, ancak gerçekten yaygın olanlar varsa, önce onları gösterin. Örneğin, `git` başlangıç komutlarını ve en sık kullanılan alt komutları önce görüntüler:
 
 ```
 $ git
@@ -361,7 +361,7 @@ examine the history and state (see also: git help revisions)
 …
 ```
 
-**Yardım metninizde biçimlendirme kullanın.** Kalın başlıklar taramayı çok daha kolaylaştırır. Ancak, bunu terminalden bağımsız bir şekilde yapmaya çalışın, böylece kullanıcılarınız *kaçış karakterlerinden* oluşan bir duvara bakmazlar.
+**Yardım metninizde biçimlendirme kullanın.** Kalın başlıklar arama yapmayı daha çok kolaylaştırır. Ancak, bunu terminalden bağımsız bir şekilde yapmaya çalışın, böylece kullanıcılarınız kaçış karakterlerinden oluşan bir duvara bakmazlar.
 
 ```
 $ heroku apps --help
@@ -402,7 +402,7 @@ COMMANDS
   apps:unlock     unlock an app so any team member can join
 ```
 
-Not: `heroku apps --help` komutu herhangi bir cihazdan çalışıtırıldığında, komut hiçbir kaçış karakteri yaymaz.
+Not: `heroku apps --help` komutu herhangi bir sayfalayıcıdan çalışıtırıldığında, hiçbir kaçış karakteri yaymaz.
 
 **Kullanıcı yanlış bir şey yaptıysa ve ne anlama geldiğini tahmin edebiliyorsanız, önerin.** Örneğin, `brew update jq`, `brew upgrade jq` komutunu çalıştırmanız gerektiğini söyler.
 
@@ -416,13 +416,13 @@ Did you mean ps? [y/n]:
 
 Düzeltilmiş sözdizimini önermek yerine, sanki ilk etapta doğru yazmışlarmış gibi, onlar için çalıştırmak cazip gelebilir. Bazen bu yapılacak doğru şeydir, ama her zaman değil.
 
-İlk olarak, geçersiz girdi mutlaka basit bir yazım hatası anlamına gelmez -bu genellikle kullanıcının mantıksal bir hata yaptığı veya bir kabuk değişkenini kötüye kullandığı anlamına gelebilir. Özellikle eylem bir durumu değiştiriyorsa, ne anlama geldiklerini varsaymak tehlikeli olabilir.
+İlk olarak, geçersiz girdi herzaman basit bir yazım hatası anlamına gelmez -bu genellikle kullanıcının mantıksal bir hata yaptığı veya bir shell değişkenini yanlış kullandığı anlamına gelebilir. Özellikle yapılan eylem, herhangi bir durumu değiştiriyorsa, ne anlama geldiklerini varsaymak tehlikeli olabilir.
 
 İkincisi, kullanıcının yazdıklarını değiştirirseniz, doğru sözdizimini öğrenemeyeceklerini unutmayın. Bunu yaparak yazdıkları şeklin geçerli ve doğru olduğuna karar veriyorsunuz. Ve bunu süresiz olarak desteklemeyi taahhüt ediyorsunuz. Bu kararı verirken kasıtlı olun ve her iki sözdizimini de belgeleyin.
 
 Daha fazlası için: ["Do What I Mean"](http://www.catb.org/~esr/jargon/html/D/DWIM.html)
 
-**Komutunuz ona bir şey iletilmesini bekliyorsa ve stdin etkileşimli bir terminalse, hemen yardımı görüntüleyin ve çıkın.** Bu, `cat` komutunda olduğu gibi herhangi bir ileti beklemek zorunda kalmaması anlamına gelir. Alternatif olarak, stderr'a bir log mesajı yazdırabilirsiniz.
+**Komutunuz ona bir şey iletilmesini bekliyorsa ve `stdin` etkileşimli bir terminalse, hemen yardımı görüntüleyin ve çıkın.** Bu, `cat` komutunda olduğu gibi herhangi bir ileti beklemek zorunda kalmaması anlamına gelir. Alternatif olarak, `stderr`'a bir hata mesajı yazdırabilirsiniz.
 
 ### Dokümantasyon
 
